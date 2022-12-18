@@ -1,0 +1,34 @@
+import "./App.css";
+import Navbar from "./components/navbar/navbar";
+import Footer from "./components/footer/footer";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/homepage/homepage";
+import FavoritesPage from "./pages/favoritespage/favoritespage";
+import AccountPage from "./pages/accountpage/accountpage";
+import CartPage from "./pages/cartpage/cartpage";
+import BeerPage from "./pages/beerpage/beerpage";
+import WinePage from "./pages/winepage/winepage";
+import SpiritsPage from "./pages/spiritspage/spiritspage";
+
+function App() {
+  return (
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/favorites" element={<FavoritesPage />} />
+          <Route exact path="/cart" element={<CartPage />} />
+          <Route exact path="/account" element={<AccountPage />} />
+          <Route exact path="/content/:linkUrl" element={<BeerPage />} />
+          <Route exact path="/content/:linkUrl" element={<WinePage />} />
+          <Route exact path="/content/:linkUrl" element={<SpiritsPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;

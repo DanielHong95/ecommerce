@@ -1,0 +1,33 @@
+.navbar {
+  display: inline-flex;
+  flex: 1;
+  background-color: black;
+  overflow: hidden;
+  width: 100%;
+}
+
+.menu-icon {
+  color: white;
+  font-size:xx-large;
+  margin: auto;
+  padding: auto;
+}
+
+.favorite-icon {
+  color: white;
+  margin: auto;
+  padding: auto;
+}
+
+.shopping-icon {
+  color: white;
+  margin: auto;
+  padding: auto;
+}
+
+.account-icon {
+  color: white;
+  margin: auto;
+  padding: auto;
+}
+

@@ -1,0 +1,61 @@
+.container {
+  background-color:black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-block: 25px;
+  position: relative;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.info-header {
+  color: white;
+}
+
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-header {
+  color: white;
+}
+
+.stores-section {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.stores-header {
+  color: white;
+}
+
+.customer-service-section {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.customer-service-header {
+  color: white;
+}
+
+.links-section {
+  color: white;
+}
+
+.footer-bottom-section {
+  display: flex;
+  color: white;
+  position: absolute;
+  bottom: 0;
+}

@@ -1,0 +1,49 @@
+.home-item {
+  width: 100%;
+  height: 20rem;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  overflow: hidden;
+  position: relative;
+}
+.home-item:hover {
+  cursor: pointer;
+  
+}
+
+.home-item .background-image {
+  width: 50%;
+  height: 100%;
+  background-position : 25% 75%;
+  background-size: cover;
+}
+.home-item .label {
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 2rem;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  position: absolute;
+}
+.home-item .content .label {
+  font-weight: 700;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #fff;
+  text-align: center;
+  font-weight: lighter;
+
+}
+.home-item .label:hover {
+  transform: scale(1.1);
+  opacity:50%;
+  transition: .1s ease-out;
+}
