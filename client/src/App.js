@@ -7,9 +7,8 @@ import HomePage from "./pages/homepage/homepage";
 import FavoritesPage from "./pages/favoritespage/favoritespage";
 import AccountPage from "./pages/accountpage/accountpage";
 import CartPage from "./pages/cartpage/cartpage";
-import BeerPage from "./pages/beerpage/beerpage";
-import WinePage from "./pages/winepage/winepage";
-import SpiritsPage from "./pages/spiritspage/spiritspage";
+
+import ProductPage from "./pages/productpage/productpage";
 
 function App() {
   return (
@@ -21,9 +20,7 @@ function App() {
           <Route exact path="/favorites" element={<FavoritesPage />} />
           <Route exact path="/cart" element={<CartPage />} />
           <Route exact path="/account" element={<AccountPage />} />
-          <Route exact path="/content/:linkUrl" element={<BeerPage />} />
-          <Route exact path="/content/:linkUrl" element={<WinePage />} />
-          <Route exact path="/content/:linkUrl" element={<SpiritsPage />} />
+          <Route exact path="/content/:linkUrl" element={<ProductPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

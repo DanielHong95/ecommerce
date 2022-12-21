@@ -4,49 +4,49 @@ const db = require("../utils/db");
 const Spirit = db.define(
   "spirits",
   {
-    spirit_id: {
+    id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNULL: false,
       primaryKey: true,
     },
-    spirit_name: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    spirit_brand: {
+    brand: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    spirit_price: {
+    price: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    spirit_size: {
+    size: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    spirit_abv: {
+    abv: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    spirit_type: {
+    type: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    spirit_category: {
+    category: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    spirit_style: {
+    style: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    spirit_country: {
+    country: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    spirit_state: {
+    state: {
       type: Sequelize.STRING,
       allowNull: true,
     },
@@ -55,11 +55,11 @@ const Spirit = db.define(
       type: Sequelize.STRING,
       allowNull: true,
     },
-    spirit_product_info: {
+    product_info: {
       type: Sequelize.STRING(500),
       allowNull: true,
     },
-    spirit_image_url: {
+    image_url: {
       type: Sequelize.STRING,
       allowNull: true,
     },

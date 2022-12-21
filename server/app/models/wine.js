@@ -4,77 +4,77 @@ const db = require("../utils/db");
 const Wine = db.define(
   "wines",
   {
-    wine_id: {
+    id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNULL: false,
       primaryKey: true,
     },
-    wine_name: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    wine_brand: {
+    brand: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    wine_year: {
+    year: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_price: {
+    price: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_size: {
+    size: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_abv: {
+    abv: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_type: {
+    type: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_varietal: {
+    varietal: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_country: {
+    country: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_state: {
+    state: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_region: {
+    region: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_appellation: {
+    appellation: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_style: {
+    style: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_taste: {
+    taste: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_body: {
+    body: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    wine_product_info: {
+    product_info: {
       type: Sequelize.STRING(500),
       allowNull: true,
     },
-    wine_image_url: {
+    image_url: {
       type: Sequelize.STRING,
       allowNull: true,
     },

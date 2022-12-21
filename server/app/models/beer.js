@@ -4,70 +4,70 @@ const db = require("../utils/db");
 const Beer = db.define(
   "beers",
   {
-    beer_id: {
+    id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNULL: false,
       primaryKey: true,
     },
-    beer_name: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    beer_brand: {
+    brand: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    beer_price: {
+    price: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_size: {
+    size: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_abv: {
+    abv: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_type: {
+    type: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_style: {
+    style: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_market: {
+    market: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_country: {
+    country: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_state: {
+    state: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_city: {
+    city: {
       type: Sequelize.STRING,
       allowNull: true,
     },
 
-    beer_taste: {
+    taste: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_body: {
+    body: {
       type: Sequelize.STRING,
       allowNull: true,
     },
-    beer_product_info: {
+    product_info: {
       type: Sequelize.STRING(500),
       allowNull: true,
     },
-    beer_image_url: {
+    image_url: {
       type: Sequelize.STRING,
       allowNull: true,
     },

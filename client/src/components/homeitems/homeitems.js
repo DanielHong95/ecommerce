@@ -8,18 +8,18 @@ function HomeItems() {
       label: "beer",
       imageUrl:
         "https://images.unsplash.com/photo-1505075106905-fb052892c116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      linkUrl: "/content/beer",
+      linkUrl: "/content/beers",
     },
     {
       id: 2,
       label: "wine",
       imageUrl:
         "https://images.unsplash.com/photo-1611575189074-9dfbbceb258a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      linkUrl: "/content/wine",
+      linkUrl: "/content/wines",
     },
     {
       id: 3,
-      label: "spirits",
+      label: "spirit",
       imageUrl:
         "https://images.unsplash.com/photo-1563845104280-bd158c3338f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
       linkUrl: "content/spirits",

@@ -25,7 +25,7 @@ app.use("/spirits", require("./routes/spirit"));
 (async () => {
   try {
     await sequelize.sync({
-      // force: false,
+      // force: true,
       alter: true,
     });
     console.log("Server has started on port 5000");
