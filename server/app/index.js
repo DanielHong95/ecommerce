@@ -21,11 +21,12 @@ app.use("/dev", require("./routes/dev"));
 app.use("/beers", require("./routes/beer"));
 app.use("/wines", require("./routes/wine"));
 app.use("/spirits", require("./routes/spirit"));
+app.use("/favorites", require("./routes/favorites"));
 
 (async () => {
   try {
     await sequelize.sync({
-      // force: true,
+      force: false,
       alter: true,
     });
     console.log("Server has started on port 5000");
