@@ -7,8 +7,8 @@ import HomePage from "./pages/homepage/homepage";
 import FavoritesPage from "./pages/favoritespage/favoritespage";
 import AccountPage from "./pages/accountpage/accountpage";
 import CartPage from "./pages/cartpage/cartpage";
-
 import ProductPage from "./pages/productpage/productpage";
+import ProductInfoPage from "./pages/productinfopage/productinfopage";
 
 function App() {
   return (
@@ -21,6 +21,11 @@ function App() {
           <Route exact path="/cart" element={<CartPage />} />
           <Route exact path="/account" element={<AccountPage />} />
           <Route exact path="/content/:linkUrl" element={<ProductPage />} />
+          <Route
+            exact
+            path="/content/:linkUrl/:id"
+            element={<ProductInfoPage />}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

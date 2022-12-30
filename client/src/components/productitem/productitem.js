@@ -24,6 +24,7 @@ function ProductItems() {
       {products.map(({ id, name, price, size, image_url }) => (
         <ProductCard
           key={id}
+          id={id}
           name={name}
           price={price}
           size={size}

@@ -1,13 +1,15 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import ProductItems from "../../components/productitem/productitem";
 
-function BeerPage() {
+function ProductPage() {
+  const { linkUrl } = useParams();
   return (
     <div>
-      <div>Products</div>
+      <div>{linkUrl}</div>
       <ProductItems />
     </div>
   );
 }
 
-export default BeerPage;
+export default ProductPage;
