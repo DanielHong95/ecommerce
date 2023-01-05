@@ -9,9 +9,9 @@ function ProductItems() {
   console.log(linkUrl);
   const [products, setProducts] = useState([]);
 
+  // get products
   useEffect(() => {
     async function fetchProducts() {
-      // You can await here
       const getProducts = await axios.get(`http://localhost:5000/${linkUrl}/`);
       setProducts(getProducts.data);
     }

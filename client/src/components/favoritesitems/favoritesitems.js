@@ -1,10 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import FavoritesCard from "../favoritescard/favoritescard";
 
-function FavoritesTest() {
+function FavoritesItems() {
   const [favorites, setFavorites] = useState([]);
 
+  // get favorites
   useEffect(() => {
     async function fetchFavorites() {
       const getFavorites = await axios.get("http://localhost:5000/favorites");
@@ -13,24 +15,20 @@ function FavoritesTest() {
     console.log(favorites);
     fetchFavorites();
   }, []);
-  console.log(favorites);
 
   return (
     <div>
-      {favorites.length ? (
-        favorites.map((data, index) => {
-          return (
-            <div key={data.id}>
-              <div>
-                {data.id}, {data.description}
-              </div>
-            </div>
-          );
-        })
-      ) : (
-        <p></p>
-      )}
+      {favorites.map(({ id, category, category_id }) => (
+        <div key={favorites.id}>
+          <FavoritesCard
+            key={id}
+            id={id}
+            category={category}
+            category_id={category_id}
+          />
+        </div>
+      ))}
     </div>
   );
 }
-export default FavoritesTest;
+export default FavoritesItems;

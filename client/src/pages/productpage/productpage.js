@@ -4,6 +4,7 @@ import ProductItems from "../../components/productitem/productitem";
 
 function ProductPage() {
   const { linkUrl } = useParams();
+
   return (
     <div>
       <div>{linkUrl}</div>

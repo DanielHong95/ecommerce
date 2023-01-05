@@ -1,9 +1,14 @@
 .navbar {
   display: inline-flex;
+  position: relative;
   flex: 1;
   background-color: black;
   overflow: hidden;
   width: 100%;
+}
+
+.logo {
+  padding: 25px;
 }
 
 .menu-icon {
@@ -29,5 +34,11 @@
   color: white;
   margin: auto;
   padding: auto;
+}
+
+.routes {
+  position: absolute;
+  bottom: 0;
+  
 }
 
