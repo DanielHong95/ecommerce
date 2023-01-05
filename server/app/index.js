@@ -22,6 +22,7 @@ app.use("/beers", require("./routes/beer"));
 app.use("/wines", require("./routes/wine"));
 app.use("/spirits", require("./routes/spirit"));
 app.use("/favorites", require("./routes/favorites"));
+app.use("/carts", require("./routes/cart"));
 
 (async () => {
   try {

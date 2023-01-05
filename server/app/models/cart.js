@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 const db = require("../utils/db");
 
-const Favorites = db.define(
-  "favorites",
+const Cart = db.define(
+  "carts",
   {
     id: {
       type: Sequelize.INTEGER,
@@ -24,4 +24,4 @@ const Favorites = db.define(
   }
 );
 
-module.exports = Favorites;
+module.exports = Cart;

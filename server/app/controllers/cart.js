@@ -1,10 +1,10 @@
-const Favorites = require("../models/favorites");
+const Cart = require("../models/cart");
 
 // crud controllers
 
 exports.getAll = async (req, res, next) => {
   try {
-    const ALL = await Favorites.findAll();
+    const ALL = await Cart.findAll();
     return res.status(200).json(ALL);
   } catch (error) {
     return res.status(500).json(error);
@@ -13,8 +13,8 @@ exports.getAll = async (req, res, next) => {
 
 exports.getOne = async (req, res, next) => {
   try {
-    const favorites = await Favorites.findByPk(req.params.id);
-    return res.status(200).json(favorites);
+    const cart = await Cart.findByPk(req.params.id);
+    return res.status(200).json(cart);
   } catch (error) {
     return res.status(500).json(error);
   }
@@ -22,14 +22,14 @@ exports.getOne = async (req, res, next) => {
 
 exports.createOne = async (req, res, next) => {
   try {
-    const FAVORITES_MODEL = {
+    const CART_MODEL = {
       category: req.body.category,
       category_id: req.body.category_id,
     };
     try {
-      const favorites = await Favorites.create(FAVORITES_MODEL);
-      console.log("Favorites imported successfully");
-      return res.status(201).json(favorites);
+      const cart = await Cart.create(CART_MODEL);
+      console.log("Cart imported successfully");
+      return res.status(201).json(cart);
     } catch (error) {
       return res.status(500).json(error);
     }
@@ -40,14 +40,14 @@ exports.createOne = async (req, res, next) => {
 
 exports.updateOne = async (req, res, next) => {
   try {
-    const FAVORITES_MODEL = {
+    const CART_MODEL = {
       description: req.body.description,
     };
     try {
-      const favorites = await Favorites.update(FAVORITES_MODEL, {
+      const cart = await Cart.update(CART_MODEL, {
         where: { id: req.params.id },
       });
-      return res.status(200).json(favorites);
+      return res.status(200).json(cart);
     } catch (error) {}
   } catch (error) {
     return res.status(500).json(error);
@@ -56,8 +56,8 @@ exports.updateOne = async (req, res, next) => {
 
 exports.deleteOne = async (req, res, next) => {
   try {
-    const favorites = await Favorites.destroy({ where: { id: req.params.id } });
-    return res.status(201).json(favorites);
+    const cart = await Cart.destroy({ where: { id: req.params.id } });
+    return res.status(201).json(cart);
   } catch (error) {
     return res.status(500).json(error);
   }
