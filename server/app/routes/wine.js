@@ -2,11 +2,6 @@ const controller = require("../controllers/wine");
 const router = require("express").Router();
 
 // endpoints
-router
-  .get("/", controller.getAll)
-  .get("/:id", controller.getOne)
-  .post("/", controller.createOne)
-  .put("/:id", controller.updateOne)
-  .delete("/:id", controller.deleteOne);
+router.get("/", controller.getAll).get("/:id", controller.getOne);
 
 module.exports = router;

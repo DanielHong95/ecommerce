@@ -10,11 +10,7 @@ const Favorites = db.define(
       allowNULL: false,
       primaryKey: true,
     },
-    category: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    category_id: {
+    product_id: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },

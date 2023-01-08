@@ -39,7 +39,7 @@ function ProductCard({ id, name, price, size, image }) {
   return (
     <div>
       <Link to={`/content/${linkUrl}/${id}`}>
-        <img src={image} alt="" />
+        <div>Products</div>
       </Link>
       <div>{name}</div>
       <div>{size}</div>
