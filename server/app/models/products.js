@@ -24,4 +24,8 @@ const Products = db.define(
   }
 );
 
+Products.associate = (models) => {
+  Products.hasMany(models.Favorites);
+};
+
 module.exports = Products;

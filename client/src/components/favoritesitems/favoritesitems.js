@@ -16,15 +16,16 @@ function FavoritesItems() {
     fetchFavorites();
   }, []);
 
+  console.log(favorites);
+
   return (
     <div>
-      {favorites.map(({ id, category, category_id }) => (
+      {favorites.map(({ product }) => (
         <div key={favorites.id}>
           <FavoritesCard
-            key={id}
-            id={id}
-            category={category}
-            category_id={category_id}
+            key={product.id}
+            category={product.category}
+            name={product.name}
           />
         </div>
       ))}

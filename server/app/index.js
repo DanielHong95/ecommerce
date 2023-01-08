@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const sequelize = require("./utils/db");
+const db = require("./utils/db");
 require("dotenv").config();
-const Beer = require("./models/beer");
+const models = require("./models");
 
 // middleware
 app.use(express.json());
@@ -27,7 +27,8 @@ app.use("/carts", require("./routes/cart"));
 
 (async () => {
   try {
-    await sequelize.sync({
+    await db.sync({
+      models,
       force: false,
       alter: true,
     });

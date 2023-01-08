@@ -10,7 +10,7 @@ const Favorites = db.define(
       allowNULL: false,
       primaryKey: true,
     },
-    product_id: {
+    productId: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },
@@ -19,5 +19,9 @@ const Favorites = db.define(
     timestamps: false,
   }
 );
+
+Favorites.associate = (models) => {
+  Favorites.belongsTo(models.Products);
+};
 
 module.exports = Favorites;

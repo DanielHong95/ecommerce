@@ -26,8 +26,7 @@ function ProductCard({ id, name, price, size, image }) {
   const postFavorites = async () => {
     try {
       const response = await axios.post("http://localhost:5000/favorites", {
-        category: linkUrl,
-        category_id: id,
+        product_id: id,
       });
       setData(response.data);
       console.log("favorite posted");

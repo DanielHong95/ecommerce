@@ -3,10 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-function FavoritesCard({ id, category, category_id }) {
+function FavoritesCard({ id, category, name }) {
   const [favorites, setFavorites] = useState([]);
 
-  console.log(category, category_id);
   // can't combine card and items components into one file because useEffect from items component prevents category and category_id data from being passed
 
   // delete favorites
@@ -29,7 +28,6 @@ function FavoritesCard({ id, category, category_id }) {
     try {
       const request = await axios.post("http://localhost:5000/carts", {
         category: category,
-        category_id: category_id,
       });
       setFavorites(request.data);
       console.log("added to cart");
@@ -45,7 +43,7 @@ function FavoritesCard({ id, category, category_id }) {
   return (
     <div>
       <div>
-        {id}, {category}, {category_id}
+        {id}, {category}, {name}
       </div>
       <button onClick={addToCart}>Add to Cart</button>
       <div key={id} onClick={() => deleteFavorites(id)}>
