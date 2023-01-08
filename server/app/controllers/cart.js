@@ -1,10 +1,11 @@
 const Cart = require("../models/cart");
+const Products = require("../models/products");
 
 // crud controllers
 
 exports.getAll = async (req, res, next) => {
   try {
-    const ALL = await Cart.findAll();
+    const ALL = await Cart.findAll({ include: Products });
     return res.status(200).json(ALL);
   } catch (error) {
     return res.status(500).json(error);
@@ -23,8 +24,7 @@ exports.getOne = async (req, res, next) => {
 exports.createOne = async (req, res, next) => {
   try {
     const CART_MODEL = {
-      category: req.body.category,
-      category_id: req.body.category_id,
+      productId: req.body.productId,
     };
     try {
       const cart = await Cart.create(CART_MODEL);

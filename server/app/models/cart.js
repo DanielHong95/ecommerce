@@ -10,11 +10,7 @@ const Cart = db.define(
       allowNULL: false,
       primaryKey: true,
     },
-    category: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    category_id: {
+    productId: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },
@@ -23,5 +19,9 @@ const Cart = db.define(
     timestamps: false,
   }
 );
+
+Cart.associate = (models) => {
+  Cart.belongsTo(models.Products);
+};
 
 module.exports = Cart;

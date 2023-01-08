@@ -24,7 +24,7 @@ exports.getOne = async (req, res, next) => {
 exports.createOne = async (req, res, next) => {
   try {
     const FAVORITES_MODEL = {
-      productId: req.body.product_id,
+      productId: req.body.productId,
     };
     try {
       const favorites = await Favorites.create(FAVORITES_MODEL);
