@@ -24,6 +24,7 @@ function FavoritesItems() {
         <div key={favorites.id}>
           <FavoritesCard
             key={product.id}
+            id={product.id}
             category={product.category}
             name={product.name}
           />

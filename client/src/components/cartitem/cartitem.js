@@ -19,13 +19,13 @@ function CartItem() {
 
   return (
     <div>
-      {cartItem.map(({ id, category, category_id }) => (
+      {cartItem.map(({ product }) => (
         <div key={cartItem.id}>
           <CartCard
-            key={id}
-            id={id}
-            category={category}
-            category_id={category_id}
+            key={product.id}
+            id={product.id}
+            category={product.category}
+            name={product.name}
           />
         </div>
       ))}

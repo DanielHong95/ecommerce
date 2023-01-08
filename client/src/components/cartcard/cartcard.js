@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-function CartCard({ id, category, category_id }) {
+function CartCard({ id, category, name }) {
   const [cartItem, setCartItem] = useState([]);
 
   // delete cart items
@@ -23,7 +23,7 @@ function CartCard({ id, category, category_id }) {
   return (
     <div>
       <div>
-        {id}, {category}, {category_id}
+        {id}, {category}, {name}
       </div>
       <div onClick={() => deleteFromCart(id)}>
         <DeleteIcon />

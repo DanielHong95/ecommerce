@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -27,7 +27,7 @@ function FavoritesCard({ id, category, name }) {
   const addToCart = async () => {
     try {
       const request = await axios.post("http://localhost:5000/carts", {
-        category: category,
+        productId: id,
       });
       setFavorites(request.data);
       console.log("added to cart");
@@ -35,10 +35,6 @@ function FavoritesCard({ id, category, name }) {
       console.log(error.message);
     }
   };
-
-  // useEffect(() => {
-  //   setFavorites();
-  // });
 
   return (
     <div>

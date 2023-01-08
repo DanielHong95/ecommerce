@@ -12,8 +12,7 @@ function ProductCard({ id, name, price, size, image }) {
   const addToCart = async () => {
     try {
       const request = await axios.post("http://localhost:5000/carts", {
-        category: linkUrl,
-        category_id: id,
+        productId: id,
       });
       setData(request.data);
       console.log("added to cart");
@@ -26,7 +25,7 @@ function ProductCard({ id, name, price, size, image }) {
   const postFavorites = async () => {
     try {
       const response = await axios.post("http://localhost:5000/favorites", {
-        product_id: id,
+        productId: id,
       });
       setData(response.data);
       console.log("favorite posted");
@@ -38,7 +37,7 @@ function ProductCard({ id, name, price, size, image }) {
   return (
     <div>
       <Link to={`/content/${linkUrl}/${id}`}>
-        <div>Products</div>
+        <img src={image} alt="" />
       </Link>
       <div>{name}</div>
       <div>{size}</div>
