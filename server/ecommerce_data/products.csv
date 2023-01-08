@@ -1,0 +1,139 @@
+﻿id,category,name
+1,beers,Budweiser
+2,beers,Budweiser
+3,beers,Bud Light
+4,beers,Bud Light
+5,beers,Coors Light
+6,beers,Coors Light
+7,beers,Michelob Ultra
+8,beers,Michelob Ultra
+9,beers,Miller Lite
+10,beers,Miller Lite
+11,beers,Shiner Bock
+12,beers,Shiner Bock
+13,beers,Shiner Light Blonde
+14,beers,Shiner Light Blonde
+15,beers,Deep Ellum Dallas Blonde
+16,beers,Deep Ellum Dallas Blonde
+17,beers,Deep Ellum IPA
+18,beers,Deep Ellum IPA
+19,beers,Manhattan Project Half Life NE IPA
+20,beers,Manhattan Project Necessary Evil
+21,beers,Manhattan Project Hoppenheimer West Coast IPA
+22,beers,Altstadt Hefeweizen
+23,beers,Altstadt Amber
+24,beers,Altstadt Kolsch
+25,beers,Altstadt Lager
+26,beers,Karbach Love Street
+27,beers,Karbach Love Street
+28,beers,Karbach Hopadillo IPA
+29,beers,Dos Equis Lager Especial
+30,beers,Dos Equis Lager Especial
+31,beers,Pacifico Clara
+32,beers,Pacifico Clara
+33,beers,Modelo Especial
+34,beers,Modelo Especial
+35,beers,Asahi Super Dry
+36,beers,Asahi Super Dry
+37,beers,Sapporo Premium Beer
+38,beers,Sapporo Premium Beer
+39,beers,Kirin Ichiban
+40,wines,"Trefethen Cabernet, 2018"
+41,wines,"Rodney Strong Cabernet Sauvignon Reserve, 2015"
+42,wines,"Carmen Cabernet Sauvignon Delanz, 2018"
+43,wines,"Martin Ray Cabernet Sauvignon Napa , 2018"
+44,wines,"Benziger Cabernet Sauvignon Sonoma County, 2018"
+45,wines,"Belle Glos Pinot Noir Las Alturas, 2019"
+46,wines,"Domaine Drouhin Pinot Noir, 2018"
+47,wines,"Elk Cove Pinot Noir Willamette, 2017"
+48,wines,"Talbott Pinot Noir Kali Hart , 2018"
+49,wines,"Kendall Jackson Pinot Noir Vintner's Reserve, 2019"
+50,wines,"Harvey & Harriet Red Paso Robles, 2018"
+51,wines,"Invicta By Merus Red Blend Sonoma, 2019"
+52,wines,"Leviathan Red Blend California, 2018"
+53,wines,"Caiarossa Toscana Pergolaia, 2016"
+54,wines,"J. Navascues La Pinada Bobal, 2017"
+55,wines,"Chateau De La Chapelle Blaye Cotes De Bordeaux, 2018"
+56,wines,"Chateau Lamarque Haut Medoc, 2019"
+57,wines,"Chateau Lilian Ladouys St. Estephe, 2019"
+58,wines,"Chateau Lague Fronsac, 2019"
+59,wines,"Chateau De Ferrand St-Emilion Grand Cru, 2018"
+60,wines,"Trivento Golden Reserve Malbec, 2018"
+61,wines,"Angelica Zapata Malbec, 2017"
+62,wines,"Clos De Los Siete, 2017"
+63,wines,"Ben Marco Expresivo Mendoza, 2017"
+64,wines,"Zuccardi Malbec Concreto, 2019"
+65,wines,Ed Edmundo Chardonnay
+66,wines,"Courtney Benham Chardonnay Napa, 2019"
+67,wines,"Gary Farrell Chardonnay Russian River Valley, 2018"
+68,wines,"Trefethen Chardonnay, 2018"
+69,wines,"Ramey Chardonnay Russian River, 2018"
+70,wines,Mato Bay Marlborough Sauvignon Blanc
+71,wines,"Allan Scott Sauvignon Blanc, 2021"
+72,wines,"Cloudy Bay Sauvignon Blanc, 2021"
+73,wines,Salmon Sancerre Sauvignon Blanc
+74,wines,"Merry Edwards Sauvignon Blanc, 2018"
+75,wines,Conte Priola Pinot Grigio
+76,wines,"King Estate Pinot Gris Willamette Valley, 2019"
+77,wines,Tesoro Della Regina Pinot Grigio
+78,wines,Conte Fini Pinot Grigio Alto Adige
+79,wines,"Anne De K Pinot Gris Schlossberg Grand Cru, 2017"
+80,wines,"Dr. Loosen ""Dr. L"" Riesling"
+81,wines,"Dr Heidemanns Riesling QbA, 2020"
+82,wines,"Winzer Krems Riesling Kreuzberg Reserve, 2017"
+83,wines,"Dr Thanisch Badstube Kabinett, 2017"
+84,wines,"Dr Heidemanns Bernkastel Badstube Riesling Auslese, 2016"
+85,wines,Mallee Point Moscato
+86,wines,Bartenura Moscato
+87,wines,Castello Poggio Moscato D'Asti
+88,wines,Marchese Dell'Elsa Moscato D'Asti
+89,wines,Donnafugata Lighea
+90,wines,Andre Brut
+91,wines,Borrasca Prosecco DOCG
+92,wines,Tesoro Della Regina Prosecco Rose
+93,wines,Vigneti Cenci Franciacorta La Capinera Cuvee Rose Brut
+94,wines,Taittinger La Francaise Brut Champagne
+95,spirits,Maker's Mark Bourbon Whiskey
+96,spirits,Wild Turkey 101
+97,spirits,Woodford Reserve
+98,spirits,Buffalo Trace
+99,spirits,Woodford Reserve Double Oaked Bourbon
+100,spirits,Old Forester 1910
+101,spirits,Wild Turkey Rye 101
+102,spirits,Rittenhouse Rye
+103,spirits,Old Forester Rye
+104,spirits,High West Double Rye
+105,spirits,Michter's Rye
+106,spirits,WhistlePig 15 Year Straight Rye
+107,spirits,Monkey Shoulder Scotch Whisky
+108,spirits,Glenfiddich 12 Year
+109,spirits,Dalmore 12 Year
+110,spirits,Laphroaig 10 Year
+111,spirits,Lagavulin 16 Year
+112,spirits,Macallan 30 Year Double Cask Scotch
+113,spirits,Jameson Irish Whiskey
+114,spirits,Jameson Black Barrel
+115,spirits,Tullamore Dew Irish Whiskey
+116,spirits,Redbreast 12 Year Irish Whiskey
+117,spirits,Green Spot Irish Whiskey
+118,spirits,Beefeater
+119,spirits,Ford's Gin
+120,spirits,Still Austin Gin
+121,spirits,Hendrick's Gin
+122,spirits,The Botanist Gin
+123,spirits,Monkey 47 Schwarzwald Dry Gin
+124,spirits,Espolon Reposado Tequila
+125,spirits,Tapatio Tequila Blanco
+126,spirits,Patron Silver
+127,spirits,Fortaleza Anejo Tequila
+128,spirits,Clase Azul Reposado Tequila
+129,spirits,Tito's Handmade Vodka
+130,spirits,Stolichnaya
+131,spirits,Belvedere
+132,spirits,Grey Goose
+133,spirits,Chopin Family Reserve Vodka
+134,spirits,Smith & Cross Trad'l Jamaican Rum
+135,spirits,Captain Morgan Spiced Rum
+136,spirits,Malibu Coconut Rum
+137,spirits,Ten To One Caribbean White Rum
+138,spirits,Diplomatico Seleccion De Familia Exclusiva Rum
