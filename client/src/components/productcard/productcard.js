@@ -28,6 +28,8 @@ function ProductCard({ id, name, price, size, image }) {
         productId: id,
       });
       setData(response.data);
+      try {
+      } catch (error) {}
       console.log("favorite posted");
     } catch (error) {
       console.log(error.message);

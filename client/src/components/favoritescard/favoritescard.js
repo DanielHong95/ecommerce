@@ -3,10 +3,12 @@ import { useState } from "react";
 import axios from "axios";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-function FavoritesCard({ id, category, name }) {
+function FavoritesCard({ id, productId, category, name }) {
   const [favorites, setFavorites] = useState([]);
 
   // can't combine card and items components into one file because useEffect from items component prevents category and category_id data from being passed
+
+  console.log(id);
 
   // delete favorites
   const deleteFavorites = async () => {
@@ -15,7 +17,7 @@ function FavoritesCard({ id, category, name }) {
         `http://localhost:5000/favorites/${id}`,
         {}
       );
-      setFavorites(favorites.filter((favorite) => favorite.id !== id));
+      setFavorites(response.data);
       // filter not rendering out deleted favorite item
       console.log("favorite deleted");
     } catch (error) {
@@ -42,8 +44,7 @@ function FavoritesCard({ id, category, name }) {
         {id}, {category}, {name}
       </div>
       <button onClick={addToCart}>Add to Cart</button>
-      <div key={id} onClick={() => deleteFavorites(id)}>
-        {console.log(id)}
+      <div onClick={() => deleteFavorites(id)}>
         <DeleteIcon />
       </div>
     </div>

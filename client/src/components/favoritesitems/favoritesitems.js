@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import FavoritesCard from "../favoritescard/favoritescard";
+import ProductCard from "../productcard/productcard";
 
 function FavoritesItems() {
   const [favorites, setFavorites] = useState([]);
@@ -16,15 +17,15 @@ function FavoritesItems() {
     fetchFavorites();
   }, []);
 
-  console.log(favorites);
+  console.log(favorites.productId);
 
   return (
     <div>
-      {favorites.map(({ product }) => (
+      {favorites.map(({ product, id }) => (
         <div key={favorites.id}>
           <FavoritesCard
-            key={product.id}
-            id={product.id}
+            key={id}
+            id={id}
             category={product.category}
             name={product.name}
           />
