@@ -4,8 +4,9 @@ import { useState } from "react";
 import axios from "axios";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-function ProductCard({ id, name, price, size, image }) {
+function ProductCard({ id, productId, name, price, size, image }) {
   const [data, setData] = useState(null);
+  const [isFavorited, setIsFavorited] = useState(false);
   const { linkUrl } = useParams();
 
   // add to cart
@@ -22,14 +23,20 @@ function ProductCard({ id, name, price, size, image }) {
   };
 
   // post favorites
-  const postFavorites = async () => {
+  const postFavorites = async (event) => {
+    event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/favorites", {
+      const response = await axios.get(
+        `http://localhost:5000/favorites/productId/${id}`
+      );
+      if (response.data) {
+        console.log("Data already exists in the database, cannot submit");
+        return;
+      }
+      await axios.post("http://localhost:5000/favorites", {
         productId: id,
       });
-      setData(response.data);
-      try {
-      } catch (error) {}
+      setIsFavorited(response.data);
       console.log("favorite posted");
     } catch (error) {
       console.log(error.message);

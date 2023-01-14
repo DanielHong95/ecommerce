@@ -21,6 +21,26 @@ exports.getOne = async (req, res, next) => {
   }
 };
 
+exports.getOneByProductId = async (req, res, next) => {
+  try {
+    const favorites = await Favorites.findOne({
+      where: { productId: req.params.productId },
+    });
+    return res.status(200).json(favorites);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
+exports.getOne = async (req, res, next) => {
+  try {
+    const favorites = await Favorites.findByPk(req.params.id);
+    return res.status(200).json(favorites);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 exports.createOne = async (req, res, next) => {
   try {
     const FAVORITES_MODEL = {
