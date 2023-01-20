@@ -9,6 +9,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const User = require("./models/users");
+const flash = require("express-flash");
 
 // middleware
 app.use(express.json());
@@ -17,6 +18,7 @@ app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
+    allowedHeaders,
   })
 );
 app.use(bodyParser.json());
@@ -37,7 +39,8 @@ app.use("/spirits", require("./routes/spirit"));
 app.use("/products", require("./routes/products"));
 app.use("/favorites", require("./routes/favorites"));
 app.use("/carts", require("./routes/cart"));
-app.use("/users", require("./routes/users"));
+// app.use("/users", require("./routes/users"));
+app.use("/users", require("./routes/jwtAuth"));
 
 // db connection
 (async () => {
