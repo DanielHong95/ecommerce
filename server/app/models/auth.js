@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const db = require("../utils/db");
+const db = require("../database/db");
 
 const Users = db.define(
   "users",
@@ -9,10 +9,6 @@ const Users = db.define(
       autoIncrement: true,
       allowNULL: false,
       primaryKey: true,
-    },
-    name: {
-      type: Sequelize.STRING,
-      allowNull: false,
     },
     email: {
       type: Sequelize.STRING,

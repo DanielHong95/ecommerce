@@ -11,13 +11,11 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="logo">
-        <Link to={"/"}>
+        <Link to={"/home"}>
           <img src={logo} alt="Logo" />
         </Link>
       </div>
-      <div>
-        <SearchBar />
-      </div>
+      <SearchBar />
       <div className="favorite-icon">
         <Link to="/favorites">
           <FavoriteIcon />

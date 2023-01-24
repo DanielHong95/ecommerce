@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import ProductItems from "../../components/productitem/productitem";
+import ProductFilter from "../../components/productfilter/productfilter";
 
 function ProductPage() {
   const { linkUrl } = useParams();
@@ -9,6 +10,7 @@ function ProductPage() {
     <div>
       <div>{linkUrl}</div>
       <ProductItems />
+      <ProductFilter />
     </div>
   );
 }

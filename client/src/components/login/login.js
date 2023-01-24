@@ -1,70 +1,80 @@
-import React, { Fragment, useState } from "react";
-import { toast } from "react-toastify";
+import { useState } from "react";
 import axios from "axios";
-import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { authenticateUser } from "../../redux/slices/authSlice";
 
 const Login = () => {
-  const [inputs, setInputs] = useState({
+  const [values, setValues] = useState({
     email: "",
     password: "",
   });
-  const [auth, setAuth] = useState(true);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
-  const { email, password } = inputs;
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
-  const onChange = (e) =>
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
-
-  const onSubmitForm = async (e) => {
+  const dispatch = useDispatch();
+  const onSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const body = { email, password };
-      // console.log("asdfasdfasdf");
-      const response = await axios({
-        method: "post",
-        url: "http://localhost:5000/users/login",
-        headers: {
-          // prettier-ignore
-          "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-        },
-        body,
-      });
 
-      const parseRes = response.data;
-      if (parseRes.jwtToken) {
-        localStorage.setItem("token", parseRes.jwtToken);
-        setAuth(true);
-        toast.success("Logged in Successfully");
-      } else {
-        setAuth(false);
-        toast.error(parseRes);
-      }
-    } catch (err) {
-      console.error(err.message);
+    try {
+      // const { data } = await onLogin(values);
+      const data = await axios.post("http://localhost:5000/auth/login", values);
+      dispatch(authenticateUser());
+      setSuccess(data.message);
+      localStorage.setItem("isAuth", "true");
+    } catch (error) {
+      console.log(error.response.data.errors[0].msg);
+      setError(error.response.data.errors[0].msg);
     }
   };
 
   return (
-    <Fragment>
-      <h1 className="mt-5 text-center">Login</h1>
-      <form onSubmit={onSubmitForm}>
-        <input
-          type="text"
-          name="email"
-          value={email}
-          onChange={(e) => onChange(e)}
-          className="form-control my-3"
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => onChange(e)}
-          className="form-control my-3"
-        />
-        <button class="btn btn-success btn-block">Submit</button>
+    <div>
+      <form onSubmit={(e) => onSubmit(e)} className="container mt-3">
+        <h1>Login</h1>
+
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email address
+          </label>
+          <input
+            onChange={(e) => onChange(e)}
+            type="email"
+            className="form-control"
+            id="loginEmail"
+            name="email"
+            value={values.email}
+            placeholder="test@gmail.com"
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            onChange={(e) => onChange(e)}
+            type="password"
+            value={values.password}
+            className="form-control"
+            id="loginPassword"
+            name="password"
+            placeholder="passwod"
+            required
+          />
+        </div>
+
+        <div style={{ color: "red", margin: "10px 0" }}>{error}</div>
+        <div style={{ color: "green", margin: "10px 0" }}>{success}</div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
-    </Fragment>
+    </div>
   );
 };
 

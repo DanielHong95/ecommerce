@@ -1,15 +1,14 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const db = require("./utils/db");
+const db = require("./database/db");
 require("dotenv").config();
 const models = require("./models");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
-const session = require("express-session");
-const bodyParser = require("body-parser");
-const User = require("./models/users");
-const flash = require("express-flash");
+
+//import passport middleware
+require("./middlewares/passport-middleware");
 
 // middleware
 app.use(express.json());
@@ -18,18 +17,10 @@ app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
-    allowedHeaders,
   })
 );
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-  session({ secret: "secretcode", resave: true, saveUninitialized: true })
-);
-app.use(cookieParser("secretcode"));
+app.use(cookieParser());
 app.use(passport.initialize());
-app.use(passport.session());
-require("./utils/passportConfig")(passport);
 
 // routes
 app.use("/dev", require("./routes/dev"));
@@ -39,8 +30,7 @@ app.use("/spirits", require("./routes/spirit"));
 app.use("/products", require("./routes/products"));
 app.use("/favorites", require("./routes/favorites"));
 app.use("/carts", require("./routes/cart"));
-// app.use("/users", require("./routes/users"));
-app.use("/users", require("./routes/jwtAuth"));
+app.use("/auth", require("./routes/auth"));
 
 // db connection
 (async () => {

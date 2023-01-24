@@ -2,12 +2,14 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 function ProductCard({ id, productId, name, price, size, image }) {
   const [data, setData] = useState(null);
   const [isFavorited, setIsFavorited] = useState(false);
   const { linkUrl } = useParams();
+  const { isAuth } = useSelector((state) => state.auth);
 
   // add to cart
   const addToCart = async () => {
@@ -51,10 +53,27 @@ function ProductCard({ id, productId, name, price, size, image }) {
       <div>{name}</div>
       <div>{size}</div>
       <div>{price}</div>
-      <button onClick={addToCart}>Add to Cart</button>
-      <div onClick={postFavorites}>
-        <FavoriteIcon />
-      </div>
+      {isAuth ? (
+        <div>
+          <button onClick={addToCart}>Add to Cart</button>
+          <div onClick={postFavorites}>
+            <FavoriteIcon />
+          </div>
+        </div>
+      ) : (
+        <div className="please-login">
+          <Link color="black" to="/account">
+            {" "}
+            Log In{" "}
+          </Link>
+          or
+          <Link color="black" to="/account">
+            {" "}
+            Create an Account{" "}
+          </Link>
+          to add to favorites and cart
+        </div>
+      )}
     </div>
   );
 }

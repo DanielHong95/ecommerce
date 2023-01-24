@@ -2,8 +2,8 @@ const Sequelize = require("sequelize");
 const Products = require("./products");
 const Favorites = require("./favorites");
 const Cart = require("./cart");
-const Users = require("./users");
-const db = require("../utils/db");
+const Users = require("./auth");
+const db = require("../database/db");
 
 const models = {
   Products,
