@@ -2,6 +2,17 @@ const Users = require("../models/auth");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+exports.getOneByEmail = async (req, res, next) => {
+  try {
+    const user = await Users.findOne({
+      where: { email: req.params.email },
+    });
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 exports.getUsers = async (req, res) => {
   try {
     const users = await Users.findAll({ attributes: ["id", "email"] });
@@ -13,18 +24,6 @@ exports.getUsers = async (req, res) => {
     console.log(error.message);
   }
 };
-// exports.getUsers = async (req, res) => {
-//   try {
-//     const { rows } = await db.query("select user_id, email from users");
-
-//     return res.status(200).json({
-//       success: true,
-//       users: rows,
-//     });
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
 
 exports.register = async (req, res) => {
   const { email, password } = req.body;
@@ -36,7 +35,7 @@ exports.register = async (req, res) => {
     });
     return res.status(201).json({
       success: true,
-      message: "The registration was successful",
+      message: "Registered successfully",
     });
   } catch (error) {
     console.log(error.message);
@@ -45,43 +44,23 @@ exports.register = async (req, res) => {
     });
   }
 };
-// exports.register = async (req, res) => {
-//   const { email, password } = req.body;
-//   try {
-//     const hashedPassword = await hash(password, 10);
-
-//     await db.query("insert into users(email,password) values ($1 , $2)", [
-//       email,
-//       hashedPassword,
-//     ]);
-
-//     return res.status(201).json({
-//       success: true,
-//       message: "The registraion was succefull",
-//     });
-//   } catch (error) {
-//     console.log(error.message);
-//     return res.status(500).json({
-//       error: error.message,
-//     });
-//   }
-// };
 
 exports.login = async (req, res) => {
   let user = req.user;
-
   let payload = {
     id: user.id,
     email: user.email,
   };
-
   try {
     const token = await jwt.sign(payload, "secret");
-
-    return res.status(200).cookie("token", token, { httpOnly: true }).json({
-      success: true,
-      message: "Logged in succefully",
-    });
+    return res
+      .status(200)
+      .cookie("token", token, { httpOnly: true })
+      .json({
+        success: true,
+        message: "Logged in successfully",
+        ...user.dataValues,
+      });
   } catch (error) {
     console.log(error.message);
     return res.status(500).json({
@@ -104,7 +83,7 @@ exports.logout = async (req, res) => {
   try {
     return res.status(200).clearCookie("token", { httpOnly: true }).json({
       success: true,
-      message: "Logged out succefully",
+      message: "Logged out successfully",
     });
   } catch (error) {
     console.log(error.message);

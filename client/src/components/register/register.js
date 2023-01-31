@@ -17,8 +17,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      // const { data } = await onRegistration(values);
-      const data = await axios.post(
+      const { data } = await axios.post(
         "http://localhost:5000/auth/register",
         values
       );
@@ -47,7 +46,7 @@ const Register = () => {
             id="registerEmail"
             name="email"
             value={values.email}
-            placeholder="test@gmail.com"
+            placeholder="email"
             required
           />
         </div>
@@ -63,7 +62,7 @@ const Register = () => {
             className="form-control"
             id="registerPassword"
             name="password"
-            placeholder="passwod"
+            placeholder="password"
             required
           />
         </div>

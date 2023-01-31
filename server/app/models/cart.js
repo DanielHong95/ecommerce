@@ -14,6 +14,10 @@ const Cart = db.define(
       type: Sequelize.INTEGER,
       allowNull: false,
     },
+    userId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+    },
   },
   {
     timestamps: false,
@@ -22,6 +26,7 @@ const Cart = db.define(
 
 Cart.associate = (models) => {
   Cart.belongsTo(models.Products);
+  Cart.belongsTo(models.Users);
 };
 
 module.exports = Cart;

@@ -14,6 +14,10 @@ const Favorites = db.define(
       type: Sequelize.INTEGER,
       allowNull: false,
     },
+    userId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+    },
   },
   {
     timestamps: false,
@@ -22,6 +26,7 @@ const Favorites = db.define(
 
 Favorites.associate = (models) => {
   Favorites.belongsTo(models.Products);
+  Favorites.belongsTo(models.Users);
 };
 
 module.exports = Favorites;

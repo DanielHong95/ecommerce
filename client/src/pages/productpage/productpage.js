@@ -9,8 +9,8 @@ function ProductPage() {
   return (
     <div>
       <div>{linkUrl}</div>
-      <ProductItems />
       <ProductFilter />
+      <ProductItems />
     </div>
   );
 }

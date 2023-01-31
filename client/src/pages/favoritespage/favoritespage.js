@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import FavoritesItems from "../../components/favoritesitems/favoritesitems";
-import FavoritesComponent from "../../components/favoritescomponent/favoritescomponent";
 
 function FavoritesPage() {
   const { isAuth } = useSelector((state) => state.auth);

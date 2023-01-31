@@ -1,21 +1,36 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { UserContext } from "../../context/userContext.js";
 
-function ProductCard({ id, productId, name, price, size, image }) {
+function ProductCard({ id, name, price, size, image }) {
   const [data, setData] = useState(null);
   const [isFavorited, setIsFavorited] = useState(false);
+  const [userData, setUserData] = useState([]);
   const { linkUrl } = useParams();
   const { isAuth } = useSelector((state) => state.auth);
+  const { user } = useContext(UserContext);
+
+  // get logged in user data
+  useEffect(() => {
+    async function fetchUserData() {
+      const getUserData = await axios.get(
+        `http://localhost:5000/auth/users/${user.email}`
+      );
+      setUserData(getUserData.data);
+    }
+    fetchUserData();
+  }, []);
 
   // add to cart
   const addToCart = async () => {
     try {
       const request = await axios.post("http://localhost:5000/carts", {
         productId: id,
+        userId: userData.id,
       });
       setData(request.data);
       console.log("added to cart");
@@ -37,6 +52,7 @@ function ProductCard({ id, productId, name, price, size, image }) {
       }
       await axios.post("http://localhost:5000/favorites", {
         productId: id,
+        userId: userData.id,
       });
       setIsFavorited(response.data);
       console.log("favorite posted");

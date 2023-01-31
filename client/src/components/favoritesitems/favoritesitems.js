@@ -1,30 +1,43 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import FavoritesCard from "../favoritescard/favoritescard";
+import { UserContext } from "../../context/userContext.js";
 
-function FavoritesItems({ id }) {
+function FavoritesItems() {
   const [favorites, setFavorites] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const { user } = useContext(UserContext);
+
+  // get user data
+  useEffect(() => {
+    async function fetchUserData() {
+      const getUserData = await axios.get(
+        `http://localhost:5000/auth/users/${user.email}`
+      );
+      setUserData(getUserData.data);
+    }
+    fetchUserData();
+  }, [user.email]);
 
   // get favorites
   useEffect(() => {
     async function fetchFavorites() {
-      const getFavorites = await axios.get("http://localhost:5000/favorites");
+      const getFavorites = await axios.get(
+        `http://localhost:5000/favorites/users/${userData.id}`
+      );
       setFavorites(getFavorites.data);
     }
     fetchFavorites();
-  }, []);
+  }, [userData.id]);
 
-  // delete favorites
-  const deleteFavorites = async () => {
+  const deleteFavorites = async (id) => {
     try {
       const response = await axios.delete(
         `http://localhost:5000/favorites/${id}`,
         {}
       );
-      console.log(id);
-      setFavorites(favorites.filter((fav) => fav.id === id));
-      // filter not rendering out deleted favorite item
+      setFavorites(favorites.filter((fave) => fave.id !== id));
       console.log("favorite deleted");
     } catch (error) {
       console.log(error.message);
@@ -41,6 +54,7 @@ function FavoritesItems({ id }) {
             productId={product.id}
             category={product.category}
             name={product.name}
+            deleteFavorites={deleteFavorites}
           />
         </div>
       ))}

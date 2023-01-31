@@ -1,7 +1,39 @@
 const Favorites = require("../models/favorites");
 const Products = require("../models/products");
+const Users = require("../models/auth");
 
 // crud controllers
+
+// by userId
+exports.getByUserId = async (req, res, next) => {
+  try {
+    const ALL = await Favorites.findAll({
+      where: { userId: req.params.userId },
+      include: Products,
+    });
+    return res.status(200).json(ALL);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
+exports.createOneByUserId = async (req, res, next) => {
+  try {
+    const FAVORITES_MODEL = {
+      productId: req.body.productId,
+      userId: req.body.userId,
+    };
+    try {
+      const favorites = await Favorites.create(FAVORITES_MODEL);
+      console.log("Favorites imported successfully");
+      return res.status(201).json(favorites);
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
 
 exports.getAll = async (req, res, next) => {
   try {

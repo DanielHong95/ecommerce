@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { authenticateUser } from "../../redux/slices/authSlice";
+import { UserContext } from "../../context/userContext";
 
 const Login = () => {
+  const { loginUser } = useContext(UserContext);
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -18,12 +20,13 @@ const Login = () => {
   const dispatch = useDispatch();
   const onSubmit = async (e) => {
     e.preventDefault();
-
+    loginUser(values);
+    console.log(values);
     try {
-      // const { data } = await onLogin(values);
-      const data = await axios.post("http://localhost:5000/auth/login", values);
+      const res = await axios.post("http://localhost:5000/auth/login", values);
       dispatch(authenticateUser());
-      setSuccess(data.message);
+
+      setSuccess(res.data.message);
       localStorage.setItem("isAuth", "true");
     } catch (error) {
       console.log(error.response.data.errors[0].msg);
@@ -47,7 +50,7 @@ const Login = () => {
             id="loginEmail"
             name="email"
             value={values.email}
-            placeholder="test@gmail.com"
+            placeholder="email"
             required
           />
         </div>
@@ -63,7 +66,7 @@ const Login = () => {
             className="form-control"
             id="loginPassword"
             name="password"
-            placeholder="passwod"
+            placeholder="password"
             required
           />
         </div>

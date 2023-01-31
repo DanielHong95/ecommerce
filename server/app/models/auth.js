@@ -25,4 +25,9 @@ const Users = db.define(
   }
 );
 
+Users.associate = (models) => {
+  Users.hasMany(models.Favorites);
+  Users.hasMany(models.Cart);
+};
+
 module.exports = Users;

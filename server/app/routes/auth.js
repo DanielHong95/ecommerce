@@ -7,7 +7,8 @@ const { registerValidation, loginValidation } = require("../validators/auth");
 const { userAuth } = require("../middlewares/auth-middleware");
 
 router
-  .get("/get-users", controller.getUsers)
+  .get("/users/:email", controller.getOneByEmail)
+  .get("/users", controller.getUsers)
   .get("/protected", userAuth, controller.protected)
   .post(
     "/register",

@@ -17,7 +17,7 @@ function ProductItems() {
     }
     console.log(products);
     fetchProducts();
-  }, []);
+  }, [linkUrl]);
 
   return (
     <div>
