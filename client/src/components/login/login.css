@@ -1,0 +1,23 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  margin-right: 100px;
+}
+
+.login-header {
+  display: flex;
+  font-size: xx-large;  
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.login-messages {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  margin-top: 275px;
+}

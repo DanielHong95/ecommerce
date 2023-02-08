@@ -1,0 +1,11 @@
+.logout-container {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.logout-messages {
+  font-family: 'Courier New', Courier, monospace;
+  margin-left: 10px;
+  margin-top: 35px;
+}

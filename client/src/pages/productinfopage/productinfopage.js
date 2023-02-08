@@ -4,7 +4,7 @@ import axios from "axios";
 
 import ProductInfo from "../../components/productinfo/productinfo";
 
-function ProductInfoPage(props) {
+function ProductInfoPage() {
   const { linkUrl, id } = useParams();
   const [productInfo, setProductInfo] = useState();
 

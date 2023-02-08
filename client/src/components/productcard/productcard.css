@@ -1,0 +1,68 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  scale: 60%;
+  border-style: solid;
+}
+
+.product-card .descriptions {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: x-large;
+}
+
+.product-card .image {
+  margin-right: 200px;
+  padding-left: 100px;
+}
+
+.product-card .buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.product-card .add-to-cart {
+  background-color: #e7e7e7;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  font-size: large;
+  width: 300px;
+  height: 40px
+}
+
+.product-card .add-to-cart:hover {
+  transform: scale(1.1);
+  opacity:50%;
+  transition: .1s ease-out;
+  cursor: pointer;
+}
+
+.product-card .favorites {
+  color: #e7e7e7;
+  margin-left: 25px;
+  scale: 150%;
+  margin-top: 9px;
+
+}
+
+.product-card .favorites:hover {
+  transform: scale(1.1);
+  opacity:50%;
+  transition: .1s ease-out;
+  cursor: pointer;
+}
+
+.product-card .please-login {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  color: white;
+  font-size: x-large;
+  font-family: 'Courier New', Courier, monospace; 
+}

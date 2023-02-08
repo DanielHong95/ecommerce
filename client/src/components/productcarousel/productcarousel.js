@@ -28,7 +28,7 @@ function ProductCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       carouselInfiniteScroll();
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   });
 
@@ -41,10 +41,12 @@ function ProductCarousel() {
             style={{ transform: `translate(-${currentIndex * 100}%)` }}
             key={index}
           >
-            <Link to={`/content/${category}/${id}`}>
-              <img src={image_url} alt="" width="250" height="250" />
-            </Link>
-            {name}
+            <div className="carousel-image">
+              <Link to={`/content/${category}/${id}`}>
+                <img src={image_url} alt="" width="250" height="250" />
+              </Link>
+            </div>
+            <div className="carousel-name">{name}</div>
           </h1>
         );
       })}

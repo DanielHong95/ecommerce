@@ -1,44 +1,103 @@
-.navbar {
-  display: inline-flex;
+.navbar-container {
+  display: flex;
   position: relative;
-  flex: 1;
-  background-color: black;
-  overflow: hidden;
+  background-color: #262626;
   width: 100%;
+  padding-bottom: 50px;
 }
 
-.logo {
-  padding: 25px;
+.navbar-logo {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 15%;
+  scale: 70%;
 }
 
-.menu-icon {
+.navbar-searchbar{
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0px;
+}
+
+.navbar-icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-favorite-icon {
   color: white;
-  font-size:xx-large;
-  margin: auto;
-  padding: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 75px;
 }
 
-.favorite-icon {
+.navbar-shopping-icon {
   color: white;
-  margin: auto;
-  padding: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 25px;
 }
 
-.shopping-icon {
+.navbar-account-icon {
   color: white;
-  margin: auto;
-  padding: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 25px;
 }
 
-.account-icon {
-  color: white;
-  margin: auto;
-  padding: auto;
+.navbar-logout {
+  margin-top: 15px;
+  margin-left: 25px;
 }
 
-.routes {
-  position: absolute;
+
+.navbar-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position:absolute;
   bottom: 0;
-  
+  padding-bottom: 20px;
+  margin-left: 38%;
 }
 
+.navbar-beer-link {
+  color: white;
+  font-family:'Courier New', Courier, monospace ;
+  font-size: xx-large;
+  margin-right: 100px;
+}
+
+.navbar-beer-link:hover {
+  transform: scale(1.1);
+  opacity:50%;
+  transition: .1s ease-out;
+  cursor: pointer;
+}
+
+.navbar-wine-link {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: xx-large;
+  margin-right: 100px;
+}
+
+.navbar-wine-link:hover {
+  transform: scale(1.1);
+  opacity:50%;
+  transition: .1s ease-out;
+  cursor: pointer;
+}
+
+.navbar-spirits-link {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: xx-large;
+}
+
+.navbar-spirits-link:hover {
+  transform: scale(1.1);
+  opacity:50%;
+  transition: .1s ease-out;
+  cursor: pointer;
+}

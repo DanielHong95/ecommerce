@@ -1,21 +1,22 @@
-.account-page-container {
-  margin-bottom: 159px;
+.cart-page-container {
+  background-size: 100%;
 }
 
-.account-page-header {
+.cart-page-header {
   display: flex;
-  flex-direction: row;
   background-color: #262626;
   color: white;
   font-family: 'Courier New', Courier, monospace;
   text-transform:capitalize;
   font-size: xx-large;;
   padding-left: 50px;
-  align-items: center;
 }
 
-.account-page-inputs {
+.cart-page-login {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-bottom: 390px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: xx-large;
 }

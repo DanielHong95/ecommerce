@@ -9,7 +9,15 @@ function HomeCard({ id, label, imageUrl, linkUrl }) {
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       >
-        <Link to={linkUrl} className="content">
+        <Link
+          to={linkUrl}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          className="content"
+        >
           <div className="label">{label.toUpperCase()}</div>
         </Link>
       </div>

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import ProductCard from "../productcard/productcard";
+import "../productitem/productitems.css";
 
 function ProductItems() {
   const { linkUrl } = useParams();
@@ -20,16 +21,18 @@ function ProductItems() {
   }, [linkUrl]);
 
   return (
-    <div>
+    <div className="product-grid-container">
       {products.map(({ id, name, price, size, image_url }) => (
-        <ProductCard
-          key={id}
-          id={id}
-          name={name}
-          price={price}
-          size={size}
-          image={image_url}
-        />
+        <div className="product-grid-item">
+          <ProductCard
+            key={id}
+            id={id}
+            name={name}
+            price={price}
+            size={size}
+            image={image_url}
+          />
+        </div>
       ))}
     </div>
   );

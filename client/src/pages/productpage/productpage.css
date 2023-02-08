@@ -1,0 +1,15 @@
+.product-page-header {
+  display: flex;
+  background-color: #262626;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform:capitalize;
+  font-size: xx-large;
+  padding-left: 50px;
+}
+
+.product-page-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+}

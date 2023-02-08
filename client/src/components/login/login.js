@@ -3,6 +3,11 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { authenticateUser } from "../../redux/slices/authSlice";
 import { UserContext } from "../../context/userContext";
+import "../login/login.css";
+
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
 
 const Login = () => {
   const { loginUser } = useContext(UserContext);
@@ -20,26 +25,83 @@ const Login = () => {
   const dispatch = useDispatch();
   const onSubmit = async (e) => {
     e.preventDefault();
-    loginUser(values);
-    console.log(values);
     try {
       const res = await axios.post("http://localhost:5000/auth/login", values);
       dispatch(authenticateUser());
-
       setSuccess(res.data.message);
       localStorage.setItem("isAuth", "true");
+      loginUser(values);
     } catch (error) {
       console.log(error.response.data.errors[0].msg);
       setError(error.response.data.errors[0].msg);
     }
   };
 
-  return (
-    <div>
-      <form onSubmit={(e) => onSubmit(e)} className="container mt-3">
-        <h1>Login</h1>
+  setTimeout(function () {
+    setSuccess(true);
+    setError(true);
+  }, 5000);
 
-        <div className="mb-3">
+  return (
+    <div className="login-container">
+      <div className="login-header">Login</div>
+      <Box
+        component="form"
+        onSubmit={(e) => onSubmit(e)}
+        noValidate
+        sx={{ mt: 1 }}
+      >
+        <TextField
+          onChange={(e) => onChange(e)}
+          value={values.email}
+          sx={{ bgcolor: "#fff" }}
+          margin="normal"
+          required
+          fullWidth
+          id="email"
+          label="Email Address"
+          name="email"
+          autoComplete="email"
+          autoFocus
+        />
+        <TextField
+          onChange={(e) => onChange(e)}
+          value={values.password}
+          sx={{ bgcolor: "#fff" }}
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+        />
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{
+            mt: 3,
+            mb: 2,
+            fontFamily: "Monospace",
+            bgcolor: "grey",
+            ":hover": {
+              bgcolor: "#262626",
+            },
+          }}
+        >
+          Login
+        </Button>
+      </Box>
+      <div className="login-messages">
+        <div style={{ color: "red" }}>{error}</div>
+        <div style={{ color: "green" }}>{success}</div>
+      </div>
+      {/* <form onSubmit={(e) => onSubmit(e)} className="login-form">
+        <div className="login-header">Login</div>
+
+        <div className="login-email-input">
           <label htmlFor="email" className="form-label">
             Email address
           </label>
@@ -55,7 +117,7 @@ const Login = () => {
           />
         </div>
 
-        <div className="mb-3">
+        <div className="login-password-input">
           <label htmlFor="password" className="form-label">
             Password
           </label>
@@ -71,12 +133,13 @@ const Login = () => {
           />
         </div>
 
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
+
         <div style={{ color: "red", margin: "10px 0" }}>{error}</div>
         <div style={{ color: "green", margin: "10px 0" }}>{success}</div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      </form> */}
     </div>
   );
 };

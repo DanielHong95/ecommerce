@@ -5,16 +5,6 @@ import axios from "axios";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import "../productfilter/productfilter.css";
 
-//mock data
-const data = {
-  style: [
-    "American-Style Lager",
-    "Light Lager",
-    "American Amber/Red Lager",
-    "Blonde Ale, American Blonde Ale",
-  ],
-};
-
 function CollectionFilter() {
   const [products, setProducts] = useState([]);
   const { linkUrl } = useParams();

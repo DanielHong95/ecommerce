@@ -3,3 +3,11 @@
 a {
   color: white;
 }
+
+body {
+    background-image: url("../../client/src/images/background_blur.jpg");
+    background-color: transparent;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size: 100%;
+}

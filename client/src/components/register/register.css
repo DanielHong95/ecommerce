@@ -1,0 +1,22 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.register-header {
+  display: flex;
+  font-size: xx-large;  
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.register-messages {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  margin-top: 275px;
+}

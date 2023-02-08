@@ -3,11 +3,14 @@ import axios from "axios";
 import { unauthenticateUser } from "../../redux/slices/authSlice";
 import { useState, useContext } from "react";
 import { UserContext } from "../../context/userContext";
+import Button from "@mui/material/Button";
+import "../logout/logout.css";
 
 const Logout = () => {
   const dispatch = useDispatch();
   const [success, setSuccess] = useState(false);
   const { logoutUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const logout = async () => {
     try {
@@ -21,12 +24,42 @@ const Logout = () => {
     }
   };
 
+  setTimeout(function () {
+    setSuccess(true);
+  }, 5000);
+
   return (
-    <div>
-      <div style={{ color: "green", margin: "10px 0" }}>{success}</div>
-      <button onClick={() => logout()} className="btn btn-primary">
+    <div className="logout-container">
+      <div className="logout-button">
+        {user ? (
+          <Button
+            onClick={() => logout()}
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{
+              mt: 3,
+              mb: 2,
+              fontFamily: "Monospace",
+              color: "#262626",
+              bgcolor: "white",
+              ":hover": {
+                bgcolor: "#262626",
+              },
+            }}
+          >
+            Logout
+          </Button>
+        ) : (
+          ""
+        )}
+      </div>
+      <div className="logout-messages">
+        <div style={{ color: "green" }}>{success}</div>
+      </div>
+      {/* <button onClick={() => logout()} className="btn btn-primary">
         Logout
-      </button>
+      </button> */}
     </div>
   );
 };

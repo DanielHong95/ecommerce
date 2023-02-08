@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { UserContext } from "../../context/userContext.js";
+import "../favoritescard/favoritescard.css";
 
 function FavoritesCard({ id, productId, category, name, deleteFavorites }) {
   const [cartItem, setCartItem] = useState([]);

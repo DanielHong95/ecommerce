@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../footer/footer.css";
-import logo from "../../images/hongover_logo.png";
+import logo from "../../images/hongover_logo_grey.png";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -22,55 +22,61 @@ function Footer() {
         <div>Copyright @ 2022 Hongover Liquor</div>
         <div>Spirit sales where allowed by law</div>
       </div>
-      {/* about us section */}
+      {/* about us section */}``
       <div className="about-section">
         <h2 className="about-header">About Us</h2>
-        <Link>Our Company</Link>
-        <Link>Corporate Philanthropy</Link>
-        <Link>Social Responsibility</Link>
-        <Link>Careers</Link>
-        <Link>In the News</Link>
-        <Link>For the Media</Link>
-        <Link>For the Trade</Link>
+        <Link style={{ textDecoration: "none" }}>Our Company</Link>
+        <Link style={{ textDecoration: "none" }}>Corporate Philanthropy</Link>
+        <Link style={{ textDecoration: "none" }}>Social Responsibility</Link>
+        <Link style={{ textDecoration: "none" }}>Careers</Link>
+        <Link style={{ textDecoration: "none" }}>In the News</Link>
+        <Link style={{ textDecoration: "none" }}>For the Media</Link>
+        <Link style={{ textDecoration: "none" }}>For the Trade</Link>
       </div>
       {/* Stores section */}
       <div className="stores-section">
         <h2 className="stores-header">Stores</h2>
-        <Link>Store Locater</Link>
-        <Link>Classes & Events</Link>
-        <Link>Book Our Room</Link>
-        <Link>Gift Cards</Link>
-        <Link>Guides and Advice</Link>
-        <Link>Weddings</Link>
-        <Link>Total Wine Professional</Link>
+        <Link style={{ textDecoration: "none" }}>Store Locater</Link>
+        <Link style={{ textDecoration: "none" }}>Classes & Events</Link>
+        <Link style={{ textDecoration: "none" }}>Book Our Room</Link>
+        <Link style={{ textDecoration: "none" }}>Gift Cards</Link>
+        <Link style={{ textDecoration: "none" }}>Guides and Advice</Link>
+        <Link style={{ textDecoration: "none" }}>Weddings</Link>
+        <Link style={{ textDecoration: "none" }}>Total Wine Professional</Link>
       </div>
       {/* customer service section */}
       <div className="customer-service-section">
         <h2 className="customer-service-header">Customer Service</h2>
-        <Link>Contact Us</Link>
-        <Link>Order Status</Link>
-        <Link>Store Pickup</Link>
-        <Link>Delivery</Link>
-        <Link>Shipping</Link>
-        <Link>Returns</Link>
-        <Link>General FAQ</Link>
+        <Link style={{ textDecoration: "none" }}>Contact Us</Link>
+        <Link style={{ textDecoration: "none" }}>Order Status</Link>
+        <Link style={{ textDecoration: "none" }}>Store Pickup</Link>
+        <Link style={{ textDecoration: "none" }}>Delivery</Link>
+        <Link style={{ textDecoration: "none" }}>Shipping</Link>
+        <Link style={{ textDecoration: "none" }}>Returns</Link>
+        <Link style={{ textDecoration: "none" }}>General FAQ</Link>
       </div>
       {/* Links section */}
       <div className="links-section">
         <h2>Stay Connected</h2>
+        <Link to="/account" className="account-link">
+          Create Account
+        </Link>
         <FacebookIcon />
         <TwitterIcon />
         <InstagramIcon />
         <PinterestIcon />
         <YouTubeIcon />
-        <Link to="/account">Create Account</Link>
       </div>
       {/* footer bottom */}
       <div className="footer-bottom-section">
-        <Link>Terms & Conditions</Link> | <Link>Privacy Policy</Link> |{" "}
-        <Link>California Privacy Notice</Link> |{" "}
-        <Link>Do Not Sell My Info</Link> | <Link>Sitemap</Link> |{" "}
-        <Link>Accessibility Policy</Link>
+        <Link style={{ textDecoration: "none" }}>Terms & Conditions</Link> |{" "}
+        <Link style={{ textDecoration: "none" }}>Privacy Policy</Link> |{" "}
+        <Link style={{ textDecoration: "none" }}>
+          California Privacy Notice
+        </Link>{" "}
+        | <Link style={{ textDecoration: "none" }}>Do Not Sell My Info</Link> |{" "}
+        <Link style={{ textDecoration: "none" }}>Sitemap</Link> |{" "}
+        <Link style={{ textDecoration: "none" }}>Accessibility Policy</Link>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { UserContext } from "../../context/userContext.js";
+import "../productcard/productcard.css";
 
 function ProductCard({ id, name, price, size, image }) {
   const [data, setData] = useState(null);
@@ -62,17 +63,21 @@ function ProductCard({ id, name, price, size, image }) {
   };
 
   return (
-    <div>
+    <div className="product-card">
       <Link to={`/content/${linkUrl}/${id}`}>
         <img src={image} alt="" />
       </Link>
-      <div>{name}</div>
-      <div>{size}</div>
-      <div>{price}</div>
+      <div className="descriptions">
+        <h2>{name}</h2>
+        <div>{size}</div>
+        <h3>${price}</h3>
+      </div>
       {isAuth ? (
-        <div>
-          <button onClick={addToCart}>Add to Cart</button>
-          <div onClick={postFavorites}>
+        <div className="buttons">
+          <button onClick={addToCart} className="add-to-cart">
+            Add to Cart
+          </button>
+          <div onClick={postFavorites} className="favorites">
             <FavoriteIcon />
           </div>
         </div>
@@ -80,13 +85,12 @@ function ProductCard({ id, name, price, size, image }) {
         <div className="please-login">
           <Link color="black" to="/account">
             {" "}
-            Log In{" "}
-          </Link>
-          or
+            Log In
+          </Link>{" "}
+          or{" "}
           <Link color="black" to="/account">
-            {" "}
-            Create an Account{" "}
-          </Link>
+            Create an Account
+          </Link>{" "}
           to add to favorites and cart
         </div>
       )}
