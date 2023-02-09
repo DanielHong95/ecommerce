@@ -24,7 +24,8 @@ function ProductInfoPage() {
   return (
     <div>
       <ProductInfo
-        id={id}
+        key={id}
+        id={productInfo.id}
         name={productInfo.name}
         brand={productInfo.brand}
         price={productInfo.price}

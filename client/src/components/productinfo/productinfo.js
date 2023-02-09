@@ -1,17 +1,26 @@
+import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { UserContext } from "../../context/userContext.js";
 import "../productinfo/productinfo.css";
 
-function ProductInfo(props, { id }) {
+function ProductInfo(props) {
   const [data, setData] = useState(null);
   const [isFavorited, setIsFavorited] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [userData, setUserData] = useState([]);
   const { isAuth } = useSelector((state) => state.auth);
   const { user } = useContext(UserContext);
+
+  // message timeout
+  setTimeout(function () {
+    setSuccessMessage(true);
+    setErrorMessage(true);
+  }, 5000);
 
   // get logged in user data
   useEffect(() => {
@@ -28,10 +37,11 @@ function ProductInfo(props, { id }) {
   const addToCart = async () => {
     try {
       const request = await axios.post("http://localhost:5000/carts", {
-        productId: id,
+        productId: props.id,
         userId: userData.id,
       });
       setData(request.data);
+      setSuccessMessage("added to cart");
       console.log("added to cart");
     } catch (error) {
       console.log(error.message);
@@ -43,17 +53,19 @@ function ProductInfo(props, { id }) {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:5000/favorites/productId/${id}`
+        `http://localhost:5000/favorites/productId/${props.id}`
       );
       if (response.data) {
+        setErrorMessage("favorite already exists");
         console.log("Data already exists in the database, cannot submit");
         return;
       }
       await axios.post("http://localhost:5000/favorites", {
-        productId: id,
+        productId: props.id,
         userId: userData.id,
       });
       setIsFavorited(response.data);
+      setSuccessMessage("added to favorites");
       console.log("favorite posted");
     } catch (error) {
       console.log(error.message);
@@ -62,7 +74,7 @@ function ProductInfo(props, { id }) {
 
   return (
     <div className="product-info">
-      <div key={props.id} className="image">
+      <div key={props.id} className="image-container">
         <img src={props.image_url} alt="images" />
         <div>
           {isAuth ? (
@@ -78,15 +90,19 @@ function ProductInfo(props, { id }) {
             <div className="please-login">
               <Link color="black" to="/account">
                 {" "}
-                LOG IN
+                Log In
               </Link>{" "}
               or{" "}
               <Link color="black" to="/account">
-                CREATE AN ACCOUNT
+                Register
               </Link>{" "}
               to add to favorites and cart
             </div>
           )}
+        </div>
+        <div className="messages">
+          <div style={{ color: "green" }}>{successMessage}</div>
+          <div style={{ color: "red" }}>{errorMessage}</div>
         </div>
       </div>
       <div className="info">
