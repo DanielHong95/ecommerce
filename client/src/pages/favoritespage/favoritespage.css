@@ -1,7 +1,4 @@
-.favorites-page-container {
-}
-
-.favorites-page-header {
+.favorites-page-container .header {
   display: flex;
   background-color: #262626;
   color: white;
@@ -11,14 +8,14 @@
   padding-left: 50px;
 }
 
-.favorites-page-items {
+.favorites-page-container .items {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(4, 350px);
-  grid-auto-rows: minmax(50px, 550px);
+  /* grid-template-columns: repeat(4, 350px);
+  grid-auto-rows: minmax(50px, 550px); */
 }
 
-.favorites-page-login {
+.favorites-page-container .login {
   display: flex;
   justify-content: center;
   margin-bottom: 390px;

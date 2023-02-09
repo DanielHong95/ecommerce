@@ -7,7 +7,6 @@
 }
 
 .product-info .image-container {
-  border-style: solid;
   margin-right: 50px;
 }
 
@@ -58,12 +57,13 @@
 }
 
 
-.product-info .please-login {
+.product-info .login {
   color: white;
   font-weight: lighter;
   font-size:large;
   font-family: 'Courier New', Courier, monospace;
   width: fit-content;
+  margin-top: 25px;
 }
 
 .product-info .info {

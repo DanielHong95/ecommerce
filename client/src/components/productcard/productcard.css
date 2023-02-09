@@ -85,9 +85,11 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
-.product-card-container .please-login {
+.product-card-container .login {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
+  margin-left: 25px;
   width: fit-content;
   color: white;
   font-size: x-large;

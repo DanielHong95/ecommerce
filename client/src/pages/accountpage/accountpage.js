@@ -9,10 +9,10 @@ function AccountPage() {
 
   return (
     <div className="account-page-container">
-      <div className="account-page-header">
+      <div className="header">
         {user ? `Welcome, ${user.email}` : "Please login"}
       </div>
-      <div className="account-page-inputs">
+      <div className="forms">
         <Login />
         <Register />
       </div>

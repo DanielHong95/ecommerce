@@ -1,8 +1,4 @@
-.cart-page-container {
-  background-size: 100%;
-}
-
-.cart-page-header {
+.cart-page-container .header {
   display: flex;
   background-color: #262626;
   color: white;
@@ -12,7 +8,7 @@
   padding-left: 50px;
 }
 
-.cart-page-login {
+.cart-page-container .login {
   display: flex;
   justify-content: center;
   margin-bottom: 390px;

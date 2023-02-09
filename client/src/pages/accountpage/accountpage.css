@@ -2,7 +2,7 @@
   margin-bottom: 159px;
 }
 
-.account-page-header {
+.account-page-container .header {
   display: flex;
   flex-direction: row;
   background-color: #262626;
@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.account-page-inputs {
+.account-page-container .forms {
   display: flex;
   justify-content: center;
   margin-top: 50px;

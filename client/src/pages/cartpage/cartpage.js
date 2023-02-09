@@ -9,22 +9,21 @@ function CartPage() {
 
   return (
     <div className="cart-page-container">
-      <div className="cart-page-header">Cart</div>
+      <div className="header">Cart</div>
       {isAuth ? (
-        <div className="cart-page-item">
+        <div className="item">
           <CartItem />
         </div>
       ) : (
-        <div className="cart-page-login">
+        <div className="login">
           <p>
-            Please{" "}
             <Link color="black" to="/account">
               {" "}
               Log In
             </Link>{" "}
             or{" "}
             <Link color="black" to="/account">
-              Create an Account
+              Register
             </Link>{" "}
             to see your cart
           </p>

@@ -4,20 +4,19 @@ import { Link } from "react-router-dom";
 import FavoritesItems from "../../components/favoritesitems/favoritesitems";
 import "../favoritespage/favoritespage.css";
 
-function FavoritesPage({ deleteMessage }) {
+function FavoritesPage() {
   const { isAuth } = useSelector((state) => state.auth);
 
   return (
     <div className="favorites-page-container">
-      <div className="favorites-page-header">Favorites</div>
+      <div className="header">Favorites</div>
       {isAuth ? (
-        <div className="favorites-page-items">
+        <div className="items">
           <FavoritesItems />
         </div>
       ) : (
-        <div className="favorites-page-login">
+        <div className="login">
           <p>
-            Please{" "}
             <Link color="black" to="/account">
               {" "}
               Log In
