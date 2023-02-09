@@ -1,0 +1,6 @@
+.favorites-grid-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(5, 350px);
+  grid-auto-rows: minmax(50px, 550px);
+}

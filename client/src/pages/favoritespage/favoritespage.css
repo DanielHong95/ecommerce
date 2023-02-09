@@ -9,11 +9,9 @@
 }
 
 .favorites-page-container .items {
-  display: grid;
-  align-items: center;
-  /* grid-template-columns: repeat(4, 350px);
-  grid-auto-rows: minmax(50px, 550px); */
+  min-height: 491px;
 }
+
 
 .favorites-page-container .login {
   display: flex;

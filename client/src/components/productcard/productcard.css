@@ -80,7 +80,6 @@
   flex-direction: column;
   position: fixed;
   bottom: 0;
-  margin-left: 50px;
   font-size: larger;
   font-family: 'Courier New', Courier, monospace;
 }

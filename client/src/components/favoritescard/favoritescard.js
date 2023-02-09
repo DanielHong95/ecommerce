@@ -56,24 +56,21 @@ function FavoritesCard({
       <Link to={`/content/${category}/${productId}`}>
         <img src={image} alt="" />
       </Link>
-      <div className="favorites-card-descriptions">
-        <h2>{name}</h2>
-        <div>{size}</div>
-        <h3>${price}</h3>
+      <div className="descriptions">
+        <div className="name">{name}</div>
+        <div className="size">{size}</div>
+        <div className="price">${price}</div>
       </div>
-      <div className="favorites-card-buttons">
-        <button className="favorites-card-addToCart" onClick={addToCart}>
+      <div className="buttons">
+        <button className="add-to-cart" onClick={addToCart}>
           Add to Cart
         </button>
-        <div
-          className="favorites-card-delete"
-          onClick={() => deleteFavorites(id)}
-        >
+        <div className="delete" onClick={() => deleteFavorites(id)}>
           <DeleteIcon />
         </div>
-        <div className="favorites-messages">
-          <div style={{ color: "green" }}>{cartMessage}</div>
-        </div>
+      </div>
+      <div className="messages">
+        <div style={{ color: "green" }}>{cartMessage}</div>
       </div>
     </div>
   );

@@ -3,56 +3,82 @@
   flex-direction: column;
   width: fit-content;
   scale: 60%;
-  border-style: solid;
+  padding-bottom: 50px;
 }
 
-.favorites-card-image {
+.favorites-card-container .image {
   margin-right: 200px;
   padding-left: 100px;
 }
 
-.favorites-card-descriptions{
+.favorites-card-container .descriptions {
   display: flex;
   flex-direction: column;
   width: 500px;
+  margin-left: 25px;
   color: white;
   font-family: 'Courier New', Courier, monospace;
+}
+
+.favorites-card-container .descriptions .name {
+  margin-top: 25px;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.favorites-card-container .descriptions .size {
   font-size: x-large;
 }
 
-.favorites-card-buttons {
+.favorites-card-container .descriptions .price {
+  margin-top: 25px;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+
+.favorites-card-container .buttons {
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
+  margin-top: 25px;
   justify-content: center;
 }
 
-.favorites-card-addToCart {
+.favorites-card-container .buttons .add-to-cart {
   background-color: #e7e7e7;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
-  font-size: large;
-  width: 300px;
-  height: 40px
+  font-size: larger;
+  width: 400px;
+  height: 50px
 }
 
-.favorites-card-addToCart:hover {
+.favorites-card-container .buttons .add-to-cart:hover {
   transform: scale(1.1);
   opacity:50%;
   transition: .1s ease-out;
   cursor: pointer;
 }
 
-.favorites-card-delete {
+.favorites-card-container .delete {
   color: #e7e7e7;
-  margin-left: 25px;
-  scale: 150%;
-  margin-top: 9px;
+  margin-left: 30px;
+  scale: 200%;
+  margin-top: 17px;
 }
 
-.favorites-card-delete:hover {
+.favorites-card-container .delete:hover {
   transform: scale(1.2);
   opacity:50%;
   transition: .1s ease-out;
   cursor: pointer;
+}
+
+.favorites-card-container .messages {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  font-size: larger;
+  font-family: 'Courier New', Courier, monospace;
 }

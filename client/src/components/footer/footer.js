@@ -22,7 +22,7 @@ function Footer() {
         <div>Copyright @ 2022 Hongover Liquor</div>
         <div>Spirit sales where allowed by law</div>
       </div>
-      {/* about us section */}``
+      {/* about us section */}
       <div className="about-section">
         <h2 className="about-header">About Us</h2>
         <Link style={{ textDecoration: "none" }}>Our Company</Link>

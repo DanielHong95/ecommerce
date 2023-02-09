@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import FavoritesCard from "../favoritescard/favoritescard";
 import { UserContext } from "../../context/userContext.js";
+import "../favoritesitems/favoritesitems.css";
 
 function FavoritesItems() {
   const [favorites, setFavorites] = useState([]);
@@ -45,7 +46,7 @@ function FavoritesItems() {
   };
 
   return (
-    <div>
+    <div className="favorites-grid-container">
       {favorites.map(({ product, id }) => (
         <div key={favorites.id}>
           <FavoritesCard
