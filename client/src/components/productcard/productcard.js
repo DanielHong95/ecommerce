@@ -17,8 +17,6 @@ function ProductCard({ id, name, price, size, image }) {
   const { isAuth } = useSelector((state) => state.auth);
   const { user } = useContext(UserContext);
 
-  console.log(id);
-
   // message timeout
   setTimeout(function () {
     setSuccessMessage(true);
@@ -56,7 +54,7 @@ function ProductCard({ id, name, price, size, image }) {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:5000/favorites/productId/${id}`
+        `http://localhost:5000/favorites/${userData.id}/${id}`
       );
       if (response.data) {
         setErrorMessage("favorite already exists");
@@ -95,7 +93,7 @@ function ProductCard({ id, name, price, size, image }) {
           </div>
         </div>
       ) : (
-        <div className="please-login">
+        <div className="login">
           <Link color="black" to="/account">
             {" "}
             Log In

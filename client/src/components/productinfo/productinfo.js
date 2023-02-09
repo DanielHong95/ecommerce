@@ -53,7 +53,7 @@ function ProductInfo(props) {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:5000/favorites/productId/${props.id}`
+        `http://localhost:5000/favorites/${userData.id}/${props.id}`
       );
       if (response.data) {
         setErrorMessage("favorite already exists");
@@ -87,7 +87,7 @@ function ProductInfo(props) {
               </div>
             </div>
           ) : (
-            <div className="please-login">
+            <div className="login">
               <Link color="black" to="/account">
                 {" "}
                 Log In
