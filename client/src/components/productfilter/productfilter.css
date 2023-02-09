@@ -1,31 +1,28 @@
 .collection-filter {
   background-color: #ccc;
   width: fit-content;
+  margin-left: 3rem;
 }
 .collection-filter .collapsible {
   background-color: #262626;
   color: white;
   cursor: pointer;
-  padding: 18px;
-  width: 300px;
+  padding: 15px;
+  width: 250px;
   border: none;
   text-align: left;
   outline: none;
   font-family: 'Courier New', Courier, monospace;
-  font-size: large;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: larger;
+  text-transform: capitalize;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: 1s ease-in-out;
 }
- /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.collection-filter .active, .collection-filter .collapsible:hover {
-  background-color: #ccc;
-}
+
 .collection-filter .filter-group {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 .collection-filter .filter-group h2 {
   width: 100%;
@@ -36,5 +33,5 @@
   border-bottom: 1px solid;
 }
 .collection-filter .filter-checkbox {
-  margin: 12px;
+  margin: 10px;
 }

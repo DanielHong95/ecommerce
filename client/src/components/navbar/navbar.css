@@ -6,96 +6,96 @@
   padding-bottom: 50px;
 }
 
-.navbar-logo {
+.navbar-container .logo {
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 15%;
+  margin-left: 260px;
   scale: 70%;
 }
 
-.navbar-searchbar{
+.navbar-container .searchbar{
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 0px;
 }
 
-.navbar-icons {
+.navbar-container .icons {
   display: flex;
   flex-direction: row;
 }
 
-.navbar-favorite-icon {
+.navbar-container .icons .favorite-icon {
   color: white;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 75px;
 }
 
-.navbar-shopping-icon {
+.navbar-container .icons .shopping-icon {
   color: white;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 25px;
 }
 
-.navbar-account-icon {
+.navbar-container .icons .account-icon {
   color: white;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 25px;
 }
 
-.navbar-logout {
-  margin-top: 15px;
-  margin-left: 25px;
+.navbar-container .icons .logout-button {
+  margin-top: 8px;
+  margin-left: 20px;
 }
 
 
-.navbar-links {
+.navbar-container .links {
   display: flex;
   flex-direction: row;
   justify-content: center;
   position:absolute;
   bottom: 0;
   padding-bottom: 20px;
-  margin-left: 38%;
+  margin-left: 700px;
 }
 
-.navbar-beer-link {
+.navbar-container .links .beer-link {
   color: white;
   font-family:'Courier New', Courier, monospace ;
   font-size: xx-large;
   margin-right: 100px;
 }
 
-.navbar-beer-link:hover {
+.navbar-container .links .beer-link:hover {
   transform: scale(1.1);
   opacity:50%;
   transition: .1s ease-out;
   cursor: pointer;
 }
 
-.navbar-wine-link {
+.navbar-container .links .wine-link {
   color: white;
   font-family: 'Courier New', Courier, monospace;
   font-size: xx-large;
   margin-right: 100px;
 }
 
-.navbar-wine-link:hover {
+.navbar-container .links .wine-link:hover {
   transform: scale(1.1);
   opacity:50%;
   transition: .1s ease-out;
   cursor: pointer;
 }
 
-.navbar-spirits-link {
+.navbar-container .links .spirits-link {
   color: white;
   font-family: 'Courier New', Courier, monospace;
   font-size: xx-large;
 }
 
-.navbar-spirits-link:hover {
+.navbar-container .links .spirits-link:hover {
   transform: scale(1.1);
   opacity:50%;
   transition: .1s ease-out;

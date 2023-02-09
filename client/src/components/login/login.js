@@ -15,8 +15,8 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -27,19 +27,19 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:5000/auth/login", values);
-      dispatch(authenticateUser());
-      setSuccess(res.data.message);
-      localStorage.setItem("isAuth", "true");
       loginUser(values);
+      dispatch(authenticateUser());
+      setSuccessMessage(res.data.message);
+      localStorage.setItem("isAuth", "true", values);
     } catch (error) {
       console.log(error.response.data.errors[0].msg);
-      setError(error.response.data.errors[0].msg);
+      setErrorMessage(error.response.data.errors[0].msg);
     }
   };
 
   setTimeout(function () {
-    setSuccess(true);
-    setError(true);
+    setSuccessMessage(true);
+    setErrorMessage(true);
   }, 5000);
 
   return (
@@ -95,8 +95,8 @@ const Login = () => {
         </Button>
       </Box>
       <div className="login-messages">
-        <div style={{ color: "red" }}>{error}</div>
-        <div style={{ color: "green" }}>{success}</div>
+        <div style={{ color: "red" }}>{errorMessage}</div>
+        <div style={{ color: "green" }}>{successMessage}</div>
       </div>
       {/* <form onSubmit={(e) => onSubmit(e)} className="login-form">
         <div className="login-header">Login</div>

@@ -37,16 +37,16 @@ function ProductCarousel() {
       {products.map(({ id, name, category, image_url }, index) => {
         return (
           <h1
-            className="carousel-item"
+            className="card"
             style={{ transform: `translate(-${currentIndex * 100}%)` }}
             key={index}
           >
-            <div className="carousel-image">
+            <div className="image">
               <Link to={`/content/${category}/${id}`}>
                 <img src={image_url} alt="" width="250" height="250" />
               </Link>
             </div>
-            <div className="carousel-name">{name}</div>
+            <div className="name">{name}</div>
           </h1>
         );
       })}

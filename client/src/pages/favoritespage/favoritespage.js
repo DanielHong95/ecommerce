@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import FavoritesItems from "../../components/favoritesitems/favoritesitems";
 import "../favoritespage/favoritespage.css";
 
-function FavoritesPage() {
+function FavoritesPage({ deleteMessage }) {
   const { isAuth } = useSelector((state) => state.auth);
 
   return (

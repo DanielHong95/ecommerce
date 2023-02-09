@@ -11,26 +11,26 @@ import Logout from "../../components/logout/logout";
 function Navbar() {
   return (
     <div className="navbar-container">
-      <div className="navbar-logo">
+      <div className="logo">
         <Link to={"/"}>
           <img src={logo} alt="Logo" />
         </Link>
       </div>
-      <div className="navbar-searchbar">
+      <div className="searchbar">
         <SearchBar />
       </div>
-      <div className="navbar-icons">
-        <div className="navbar-favorite-icon">
+      <div className="icons">
+        <div className="favorite-icon">
           <Link to="/favorites">
             <FavoriteIcon sx={{ "&:hover": { color: "#262626" } }} />
           </Link>
         </div>
-        <div className="navbar-shopping-icon">
+        <div className="shopping-icon">
           <Link to="/cart">
             <ShoppingCartIcon sx={{ "&:hover": { color: "#262626" } }} />
           </Link>
         </div>
-        <div className="navbar-account-icon">
+        <div className="account-icon">
           <Link to="/account">
             <AccountCircleIcon
               fontSize="large"
@@ -38,22 +38,22 @@ function Navbar() {
             />
           </Link>
         </div>
-        <div className="navbar-logout">
+        <div className="logout-button">
           <Logout />
         </div>
       </div>
-      <div className="navbar-links">
-        <div className="navbar-beer-link">
+      <div className="links">
+        <div className="beer-link">
           <Link to="/content/beers" style={{ textDecoration: "none" }}>
             Beers
           </Link>
         </div>
-        <div className="navbar-wine-link">
+        <div className="wine-link">
           <Link to="/content/wines" style={{ textDecoration: "none" }}>
             Wines
           </Link>
         </div>
-        <div className="navbar-spirits-link">
+        <div className="spirits-link">
           <Link to="/content/spirits" style={{ textDecoration: "none" }}>
             Spirits
           </Link>

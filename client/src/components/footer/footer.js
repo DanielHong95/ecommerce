@@ -10,7 +10,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 
 function Footer() {
   return (
-    <div className="container">
+    <div className="footer-container">
       {/* logo section */}
       <div className="info-section">
         <Link to={"/"}>

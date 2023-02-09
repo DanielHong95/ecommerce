@@ -3,27 +3,35 @@
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
+  margin-top: 25px;
 }
 
-.carousel-item {
+.carousel-container
+.card {
   height: 300px;
   min-width: 20%;
   width: 20%;
   transition: 1s cubic-bezier(0.39, 0.575. 0.565, 1);
 }
 
-.carousel-item:hover {
+
+.carousel-container
+.card:hover {
   opacity:50%;
   transition: .1s ease-out;
   cursor: pointer;
 }
 
-.carousel-image {
+.carousel-container
+.card
+.image {
   display: flex;
   justify-content: center;
 }
 
-.carousel-name {
+.carousel-container
+.card
+.name {
   color: white;
   font-family: 'Courier New', Courier, monospace;
   font-weight: lighter;

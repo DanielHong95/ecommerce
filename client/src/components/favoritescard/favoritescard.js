@@ -1,14 +1,29 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { UserContext } from "../../context/userContext.js";
 import "../favoritescard/favoritescard.css";
 
-function FavoritesCard({ id, productId, category, name, deleteFavorites }) {
+function FavoritesCard({
+  id,
+  productId,
+  category,
+  name,
+  deleteFavorites,
+  image,
+  size,
+  price,
+}) {
   const [cartItem, setCartItem] = useState([]);
   const [userData, setUserData] = useState([]);
+  const [cartMessage, setCartMessage] = useState(false);
   const { user } = useContext(UserContext);
+
+  setTimeout(function () {
+    setCartMessage(true);
+  }, 5000);
 
   // get logged in user data
   useEffect(() => {
@@ -29,6 +44,7 @@ function FavoritesCard({ id, productId, category, name, deleteFavorites }) {
         userId: userData.id,
       });
       setCartItem(request.data);
+      setCartMessage("added to cart");
       console.log("added to cart");
     } catch (error) {
       console.log(error.message);
@@ -36,13 +52,28 @@ function FavoritesCard({ id, productId, category, name, deleteFavorites }) {
   };
 
   return (
-    <div>
-      <div>
-        {id}, {productId}, {category}, {name}
+    <div className="favorites-card-container">
+      <Link to={`/content/${category}/${productId}`}>
+        <img src={image} alt="" />
+      </Link>
+      <div className="favorites-card-descriptions">
+        <h2>{name}</h2>
+        <div>{size}</div>
+        <h3>${price}</h3>
       </div>
-      <button onClick={addToCart}>Add to Cart</button>
-      <div onClick={() => deleteFavorites(id)}>
-        <DeleteIcon />
+      <div className="favorites-card-buttons">
+        <button className="favorites-card-addToCart" onClick={addToCart}>
+          Add to Cart
+        </button>
+        <div
+          className="favorites-card-delete"
+          onClick={() => deleteFavorites(id)}
+        >
+          <DeleteIcon />
+        </div>
+        <div className="favorites-messages">
+          <div style={{ color: "green" }}>{cartMessage}</div>
+        </div>
       </div>
     </div>
   );

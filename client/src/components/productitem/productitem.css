@@ -3,4 +3,5 @@
   align-items: center;
   grid-template-columns: repeat(4, 350px);
   grid-auto-rows: minmax(50px, 550px);
+  margin-top: 1em;
 }

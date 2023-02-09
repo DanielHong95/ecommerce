@@ -1,5 +1,4 @@
 .favorites-page-container {
-  margin-bottom: 491px;
 }
 
 .favorites-page-header {
@@ -10,6 +9,13 @@
   text-transform:capitalize;
   font-size: xx-large;;
   padding-left: 50px;
+}
+
+.favorites-page-items {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(4, 350px);
+  grid-auto-rows: minmax(50px, 550px);
 }
 
 .favorites-page-login {

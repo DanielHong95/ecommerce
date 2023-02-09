@@ -10,10 +10,20 @@ import "../productcard/productcard.css";
 function ProductCard({ id, name, price, size, image }) {
   const [data, setData] = useState(null);
   const [isFavorited, setIsFavorited] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [userData, setUserData] = useState([]);
   const { linkUrl } = useParams();
   const { isAuth } = useSelector((state) => state.auth);
   const { user } = useContext(UserContext);
+
+  console.log(id);
+
+  // message timeout
+  setTimeout(function () {
+    setSuccessMessage(true);
+    setErrorMessage(true);
+  }, 5000);
 
   // get logged in user data
   useEffect(() => {
@@ -34,6 +44,7 @@ function ProductCard({ id, name, price, size, image }) {
         userId: userData.id,
       });
       setData(request.data);
+      setSuccessMessage("added to cart");
       console.log("added to cart");
     } catch (error) {
       console.log(error.message);
@@ -48,6 +59,7 @@ function ProductCard({ id, name, price, size, image }) {
         `http://localhost:5000/favorites/productId/${id}`
       );
       if (response.data) {
+        setErrorMessage("favorite already exists");
         console.log("Data already exists in the database, cannot submit");
         return;
       }
@@ -56,6 +68,7 @@ function ProductCard({ id, name, price, size, image }) {
         userId: userData.id,
       });
       setIsFavorited(response.data);
+      setSuccessMessage("added to favorites");
       console.log("favorite posted");
     } catch (error) {
       console.log(error.message);
@@ -63,14 +76,14 @@ function ProductCard({ id, name, price, size, image }) {
   };
 
   return (
-    <div className="product-card">
+    <div className="product-card-container">
       <Link to={`/content/${linkUrl}/${id}`}>
         <img src={image} alt="" />
       </Link>
       <div className="descriptions">
-        <h2>{name}</h2>
-        <div>{size}</div>
-        <h3>${price}</h3>
+        <div className="name">{name}</div>
+        <div className="size">{size}</div>
+        <div className="price">${price}</div>
       </div>
       {isAuth ? (
         <div className="buttons">
@@ -89,11 +102,15 @@ function ProductCard({ id, name, price, size, image }) {
           </Link>{" "}
           or{" "}
           <Link color="black" to="/account">
-            Create an Account
+            Register
           </Link>{" "}
           to add to favorites and cart
         </div>
       )}
+      <div className="messages">
+        <div style={{ color: "green" }}>{successMessage}</div>
+        <div style={{ color: "red" }}>{errorMessage}</div>
+      </div>
     </div>
   );
 }

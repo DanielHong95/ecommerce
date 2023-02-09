@@ -1,4 +1,4 @@
-.product-page-header {
+.product-page .header {
   display: flex;
   background-color: #262626;
   color: white;
@@ -8,8 +8,7 @@
   padding-left: 50px;
 }
 
-.product-page-body {
+.product-page .body {
   display: flex;
   flex-direction: row;
-  justify-content: baseline;
 }

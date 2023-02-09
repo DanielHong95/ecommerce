@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { unauthenticateUser } from "../../redux/slices/authSlice";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../context/userContext";
 import Button from "@mui/material/Button";
 import "../logout/logout.css";
@@ -23,6 +23,10 @@ const Logout = () => {
       console.log(error.response);
     }
   };
+
+  useEffect(() => {
+    logout();
+  }, []);
 
   setTimeout(function () {
     setSuccess(true);

@@ -9,12 +9,12 @@ function ProductPage() {
 
   return (
     <div className="product-page">
-      <div className="product-page-header">{linkUrl}</div>
-      <div className="product-page-body">
-        <div className="product-page-filter">
+      <div className="header">{linkUrl}</div>
+      <div className="body">
+        <div className="filter">
           <ProductFilter />
         </div>
-        <div className="product-page-items">
+        <div className="items">
           <ProductItems />
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import ProductCard from "../productcard/productcard";
-import "../productitem/productitems.css";
+import "../productitem/productitem.css";
 
 function ProductItems() {
   const { linkUrl } = useParams();

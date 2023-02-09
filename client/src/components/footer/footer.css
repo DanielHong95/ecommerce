@@ -1,4 +1,4 @@
-.container {
+.footer-container {
   background-color:#262626;
   position: relative;
   bottom: 0;
@@ -10,7 +10,7 @@
 }
 
 
-.info-section {
+.footer-container .info-section {
   display: flex;
   flex-direction: column;
   color: white;
@@ -19,12 +19,12 @@
   font-size: small;
 }
 
-.info-header {
+.footer-container .info-section  .info-header {
   color: white;
 }
 
 
-.about-section {
+.footer-container .about-section {
   display: flex;
   flex-direction: column;
   margin-right: 25px;
@@ -32,24 +32,11 @@
   font-size: small;
 }
 
-.about-header {
+.footer-container .about-section .about-header {
   color: white;
 }
 
-.stores-section {
-  display: flex;
-  flex-direction: column;
-  color: white;
-  margin-right: 25px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: small;
-}
-
-.stores-header {
-  color: white;
-}
-
-.customer-service-section {
+.footer-container .stores-section {
   display: flex;
   flex-direction: column;
   color: white;
@@ -58,23 +45,37 @@
   font-size: small;
 }
 
-.customer-service-header {
+.footer-container .stores-section .stores-header {
   color: white;
 }
 
-.links-section {
+.footer-container .customer-service-section {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-right: 25px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: small;
+}
+
+.footer-container .customer-service-section .customer-service-header {
+  color: white;
+}
+
+.footer-container .links-section {
   color: white;
   font-family: 'Courier New', Courier, monospace;
   font-size: small;
 }
 
-.account-link {
+
+.footer-container .links-section .account-link {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
 
-.footer-bottom-section {
+.footer-container .footer-bottom-section {
   display: flex;
   color: white;
   position: absolute;

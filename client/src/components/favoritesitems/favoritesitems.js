@@ -54,6 +54,9 @@ function FavoritesItems() {
             productId={product.id}
             category={product.category}
             name={product.name}
+            image={product.image_url}
+            size={product.size}
+            price={product.price}
             deleteFavorites={deleteFavorites}
           />
         </div>

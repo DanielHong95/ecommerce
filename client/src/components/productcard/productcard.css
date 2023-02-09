@@ -1,64 +1,91 @@
-.product-card {
+.product-card-container {
   display: flex;
   flex-direction: column;
   width: fit-content;
   scale: 60%;
-  border-style: solid;
+  padding-bottom: 50px;
 }
 
-.product-card .descriptions {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: x-large;
-}
-
-.product-card .image {
+.product-card-container .image {
   margin-right: 200px;
   padding-left: 100px;
 }
 
-.product-card .buttons {
+.product-card-container .descriptions {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-left: 25px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.product-card-container .descriptions .name {
+  margin-top: 25px;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.product-card-container .descriptions .size {
+  font-size: x-large;
+}
+
+.product-card-container .descriptions .price {
+  margin-top: 25px;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+
+.product-card-container .buttons {
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
+  margin-top: 25px;
   justify-content: center;
 }
 
-.product-card .add-to-cart {
+.product-card-container .buttons .add-to-cart {
   background-color: #e7e7e7;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
-  font-size: large;
-  width: 300px;
-  height: 40px
+  font-size: larger;
+  width: 400px;
+  height: 50px
 }
 
-.product-card .add-to-cart:hover {
+.product-card-container .buttons .add-to-cart:hover {
   transform: scale(1.1);
   opacity:50%;
   transition: .1s ease-out;
   cursor: pointer;
 }
 
-.product-card .favorites {
+.product-card-container .buttons .favorites {
   color: #e7e7e7;
-  margin-left: 25px;
-  scale: 150%;
-  margin-top: 9px;
+  margin-left: 40px;
+  scale: 200%;
+  margin-top: 17px;
 
 }
 
-.product-card .favorites:hover {
-  transform: scale(1.1);
+.product-card-container .buttons .favorites:hover {
+  transform: scale(1.2);
   opacity:50%;
   transition: .1s ease-out;
   cursor: pointer;
 }
 
-.product-card .please-login {
+.product-card-container .messages {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  margin-left: 50px;
+  font-size: larger;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.product-card-container .please-login {
   display: flex;
   flex-direction: column;
   width: fit-content;

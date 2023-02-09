@@ -1,0 +1,58 @@
+.favorites-card-container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  scale: 60%;
+  border-style: solid;
+}
+
+.favorites-card-image {
+  margin-right: 200px;
+  padding-left: 100px;
+}
+
+.favorites-card-descriptions{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: x-large;
+}
+
+.favorites-card-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.favorites-card-addToCart {
+  background-color: #e7e7e7;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  font-size: large;
+  width: 300px;
+  height: 40px
+}
+
+.favorites-card-addToCart:hover {
+  transform: scale(1.1);
+  opacity:50%;
+  transition: .1s ease-out;
+  cursor: pointer;
+}
+
+.favorites-card-delete {
+  color: #e7e7e7;
+  margin-left: 25px;
+  scale: 150%;
+  margin-top: 9px;
+}
+
+.favorites-card-delete:hover {
+  transform: scale(1.2);
+  opacity:50%;
+  transition: .1s ease-out;
+  cursor: pointer;
+}
