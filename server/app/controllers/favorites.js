@@ -17,6 +17,18 @@ exports.getByUserId = async (req, res, next) => {
   }
 };
 
+exports.getProductByUserId = async (req, res, next) => {
+  try {
+    const favorite = await Favorites.findOne({
+      where: { userId: req.params.userId, productId: req.params.productId },
+      include: Products,
+    });
+    return res.status(200).json(favorite);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 exports.createOneByUserId = async (req, res, next) => {
   try {
     const FAVORITES_MODEL = {

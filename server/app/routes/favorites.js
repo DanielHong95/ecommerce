@@ -4,6 +4,7 @@ const router = require("express").Router();
 // endpoints
 router
   .get("/users/:userId", controller.getByUserId)
+  .get("/:userId/:productId", controller.getProductByUserId)
   .post("/", controller.createOneByUserId)
   .get("/", controller.getAll)
   .get("/:id", controller.getOne)
