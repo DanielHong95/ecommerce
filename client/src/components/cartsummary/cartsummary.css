@@ -1,0 +1,10 @@
+.cart-summary-container {
+  display: flex;
+  background-color: #262626;
+}
+
+.cart-summary-container .header {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}

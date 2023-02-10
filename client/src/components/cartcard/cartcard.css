@@ -1,0 +1,9 @@
+.cart-card-container {
+  background-color: aliceblue;
+  border-style: solid;
+}
+
+.cart-card-container .counter {
+  display: flex;
+  flex-direction: row;
+}

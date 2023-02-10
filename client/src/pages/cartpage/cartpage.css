@@ -8,6 +8,15 @@
   padding-left: 50px;
 }
 
+.cart-page-container .components {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 491px;
+
+}
+
+
 .cart-page-container .login {
   display: flex;
   justify-content: center;

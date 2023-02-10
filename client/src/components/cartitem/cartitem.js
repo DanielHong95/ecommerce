@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import CartCard from "../cartcard/cartcard";
 import { UserContext } from "../../context/userContext";
+import "../cartitem/cartitem.css";
 
 function CartItem() {
   const [cartItems, setCartItems] = useState([]);
@@ -32,6 +33,8 @@ function CartItem() {
     fetchCartItems();
   }, [userData.id]);
 
+  let countTest = "1234";
+
   const deleteFromCart = async (id) => {
     try {
       const response = await axios.delete(
@@ -45,16 +48,22 @@ function CartItem() {
     }
   };
 
+  if (cartItems.length === 0) {
+    return <div className="empty-message">Your cart is empty</div>;
+  }
+
   return (
     <div>
-      {cartItems.map(({ product, id }) => (
+      {cartItems.map(({ product, id, productId }) => (
         <div key={cartItems.id}>
           <CartCard
             key={id}
             id={id}
+            productId={productId}
             category={product.category}
             name={product.name}
             deleteFromCart={deleteFromCart}
+            countTest={countTest}
           />
         </div>
       ))}
