@@ -55,6 +55,7 @@ function CartItem() {
   if (cartItems.length === 0) {
     return <div className="cart-empty-message">Your cart is empty</div>;
   }
+  console.log({ cartItems });
   return (
     <div className="cart-items-container">
       <div className="cart-cards">
@@ -77,7 +78,7 @@ function CartItem() {
         ))}
       </div>
       <div className="cart-summary">
-        <CartSummary count={cartCount} />
+        <CartSummary count={cartCount} cartItems={cartItems} />
       </div>
     </div>
   );

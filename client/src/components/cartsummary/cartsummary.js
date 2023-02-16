@@ -4,11 +4,11 @@ import { UserContext } from "../../context/userContext";
 import "../cartsummary/cartsummary.css";
 
 function CartSummary(props) {
-  const [cartItems, setCartItems] = useState([]);
   const [userData, setUserData] = useState([]);
   const [productTotal, setProductTotal] = useState(0);
   const { user } = useContext(UserContext);
 
+  console.log(props.cartItems);
   // get user data
   useEffect(() => {
     async function fetchUserData() {
@@ -33,7 +33,7 @@ function CartSummary(props) {
       setProductTotal(productTotalSum);
     }
     fetchProductSum();
-  }, [userData.id, props.count]);
+  }, [userData.id, props.count, props.cartItems]);
   // console.log(testTotal);
 
   let cartTax = productTotal * 0.0825;

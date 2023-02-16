@@ -22,7 +22,7 @@ function CartCard({
   const { user } = useContext(UserContext);
 
   // Call callback function with new count value
-  const handleCountChange = (newCount) => {
+  const handleCountChange = (newCount, productId) => {
     setCount(newCount);
     onCountChange(newCount);
   };
@@ -39,8 +39,8 @@ function CartCard({
   }, []);
 
   // update quantity
-  const updateQuantity = (id, newQuantity) => {
-    axios
+  const updateQuantity = async (id, newQuantity) => {
+    await axios
       .put(`http://localhost:5000/carts/quantity/${id}`, {
         quantity: newQuantity,
       })
@@ -70,12 +70,12 @@ function CartCard({
         <div className="counter">
           <button
             className="decrement"
-            onClick={() => {
+            onClick={async () => {
               if (count > 1) {
                 const newCount = count - 1;
+                await updateQuantity(id, newCount);
                 setCount(newCount);
                 handleCountChange(newCount);
-                updateQuantity(id, newCount);
               } else {
                 console.log("cannot decrement");
               }
@@ -87,11 +87,11 @@ function CartCard({
           <div>{count}</div>
           <button
             className="increment"
-            onClick={() => {
+            onClick={async () => {
               const newCount = count + 1;
+              await updateQuantity(id, newCount);
               setCount(newCount);
               handleCountChange(newCount);
-              updateQuantity(id, newCount);
             }}
           >
             {" "}
