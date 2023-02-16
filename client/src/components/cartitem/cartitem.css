@@ -4,3 +4,8 @@
   font-size: xx-large;
   margin-right: 500px;
 }
+
+.cart-items-container {
+  display: flex;
+  flex-direction: row;
+}

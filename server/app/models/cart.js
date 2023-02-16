@@ -13,8 +13,16 @@ const Cart = db.define(
     productId: {
       type: Sequelize.INTEGER,
       allowNull: false,
+      references: {
+        model: "products",
+        key: "id",
+      },
     },
     userId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+    },
+    quantity: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },

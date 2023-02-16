@@ -1,9 +1,79 @@
 .cart-card-container {
-  background-color: aliceblue;
-  border-style: solid;
-}
-
-.cart-card-container .counter {
   display: flex;
   flex-direction: row;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 700px;
+}
+
+.cart-card-container .image {
+  margin-right: 10px;
+}
+
+.cart-card-container .descriptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.cart-card-container .descriptions .name {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.cart-card-container .descriptions .size {
+  font-size: small;
+}
+
+.cart-card-container .buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-card-container .buttons .delete {
+  color: #e7e7e7;
+  margin-top: 40px;
+  margin-right: 10px;
+}
+
+.cart-card-container .buttons .delete:hover {
+  transform: scale(1.2);
+  opacity:50%;
+  transition: .1s ease-out;
+  cursor: pointer;
+}
+
+.cart-card-container .buttons .counter {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  align-items: center;
+  margin-top: 40px;
+  margin-right: 10px;
+  height: 25px;
+  color: black;
+  font-weight: bold;
+  background-color: #e7e7e7;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.cart-card-container .buttons .counter .increment{
+  margin-left: 7px;
+  height: 25px;
+}
+
+.cart-card-container .buttons .counter .decrement{
+  margin-right: 7px;
+  height: 25px;
+}
+
+.cart-card-container .total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
 }

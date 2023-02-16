@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CartItem from "../../components/cartitem/cartitem";
-import CartSummary from "../../components/cartsummary/cartsummary";
 import "../cartpage/cartpage.css";
 
 function CartPage() {
@@ -14,7 +13,6 @@ function CartPage() {
       {isAuth ? (
         <div className="components">
           <CartItem />
-          <CartSummary />
         </div>
       ) : (
         <div className="login">

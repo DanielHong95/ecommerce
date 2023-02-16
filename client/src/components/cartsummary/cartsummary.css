@@ -1,10 +1,23 @@
 .cart-summary-container {
   display: flex;
+  flex-direction: column;
   background-color: #262626;
+  height: 400px;
+  width:fit-content;
+  margin-top: 25px;
 }
 
-.cart-summary-container .header {
+.cart-summary-container .cart-header {
   display: flex;
-  text-align: center;
   justify-content: center;
+  color:white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: x-large;
+}
+
+.cart-summary-container .cart-total {
+  margin-top: 50px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+
 }

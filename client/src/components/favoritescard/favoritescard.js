@@ -16,13 +16,15 @@ function FavoritesCard({
   size,
   price,
 }) {
-  const [cartItem, setCartItem] = useState([]);
   const [userData, setUserData] = useState([]);
-  const [cartMessage, setCartMessage] = useState(false);
+  const [data, setData] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const { user } = useContext(UserContext);
 
   setTimeout(function () {
-    setCartMessage(true);
+    setSuccessMessage(true);
+    setErrorMessage(true);
   }, 5000);
 
   // get logged in user data
@@ -37,15 +39,25 @@ function FavoritesCard({
   }, []);
 
   // add to cart
-  const addToCart = async () => {
+  const addToCart = async (event) => {
+    event.preventDefault();
     try {
+      const response = await axios.get(
+        `http://localhost:5000/carts/${userData.id}/${productId}`
+      );
+      if (response.data) {
+        setErrorMessage("Cart item already exists");
+        console.log("Cart item already exists");
+        return;
+      }
       const request = await axios.post("http://localhost:5000/carts", {
-        productId: id,
+        productId: productId,
         userId: userData.id,
+        quantity: 1,
       });
-      setCartItem(request.data);
-      setCartMessage("added to cart");
-      console.log("added to cart");
+      setData(request.data);
+      setSuccessMessage("Added to cart");
+      console.log("Added to cart");
     } catch (error) {
       console.log(error.message);
     }
@@ -70,7 +82,8 @@ function FavoritesCard({
         </div>
       </div>
       <div className="messages">
-        <div style={{ color: "green" }}>{cartMessage}</div>
+        <div style={{ color: "green" }}>{successMessage}</div>
+        <div style={{ color: "red" }}>{errorMessage}</div>
       </div>
     </div>
   );

@@ -4,11 +4,17 @@ import axios from "axios";
 import CartCard from "../cartcard/cartcard";
 import { UserContext } from "../../context/userContext";
 import "../cartitem/cartitem.css";
+import CartSummary from "../cartsummary/cartsummary";
 
 function CartItem() {
   const [cartItems, setCartItems] = useState([]);
   const [userData, setUserData] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
   const { user } = useContext(UserContext);
+
+  const handleCartCountChange = (newCount) => {
+    setCartCount(newCount);
+  };
 
   // get user data
   useEffect(() => {
@@ -33,8 +39,6 @@ function CartItem() {
     fetchCartItems();
   }, [userData.id]);
 
-  let countTest = "1234";
-
   const deleteFromCart = async (id) => {
     try {
       const response = await axios.delete(
@@ -51,22 +55,28 @@ function CartItem() {
   if (cartItems.length === 0) {
     return <div className="empty-message">Your cart is empty</div>;
   }
-
   return (
-    <div>
-      {cartItems.map(({ product, id, productId }) => (
+    <div className="cart-items-container">
+      {cartItems.map(({ id, productId, quantity, product }) => (
         <div key={cartItems.id}>
           <CartCard
             key={id}
             id={id}
             productId={productId}
+            quantity={quantity}
+            image={product.image_url}
             category={product.category}
             name={product.name}
+            size={product.size}
+            price={product.price}
             deleteFromCart={deleteFromCart}
-            countTest={countTest}
+            onCountChange={handleCartCountChange}
           />
         </div>
       ))}
+      <div>
+        <CartSummary count={cartCount} />
+      </div>
     </div>
   );
 }

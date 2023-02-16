@@ -34,14 +34,24 @@ function ProductInfo(props) {
   }, []);
 
   // add to cart
-  const addToCart = async () => {
+  const addToCart = async (event) => {
+    event.preventDefault();
     try {
+      const response = await axios.get(
+        `http://localhost:5000/carts/${userData.id}/${props.id}`
+      );
+      if (response.data) {
+        setErrorMessage("Cart item already exists");
+        console.log("Cart item already exists");
+        return;
+      }
       const request = await axios.post("http://localhost:5000/carts", {
         productId: props.id,
         userId: userData.id,
+        quantity: 1,
       });
       setData(request.data);
-      setSuccessMessage("added to cart");
+      setSuccessMessage("Added to cart");
       console.log("added to cart");
     } catch (error) {
       console.log(error.message);
@@ -56,7 +66,7 @@ function ProductInfo(props) {
         `http://localhost:5000/favorites/${userData.id}/${props.id}`
       );
       if (response.data) {
-        setErrorMessage("favorite already exists");
+        setErrorMessage("Favorite already exists");
         console.log("Data already exists in the database, cannot submit");
         return;
       }
@@ -65,7 +75,7 @@ function ProductInfo(props) {
         userId: userData.id,
       });
       setIsFavorited(response.data);
-      setSuccessMessage("added to favorites");
+      setSuccessMessage("Added to favorites");
       console.log("favorite posted");
     } catch (error) {
       console.log(error.message);

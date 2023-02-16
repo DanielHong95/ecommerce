@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../context/userContext.js";
 import axios from "axios";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -7,15 +8,24 @@ import "../cartcard/cartcard.css";
 function CartCard({
   id,
   productId,
+  quantity,
+  image,
   category,
   name,
+  size,
+  price,
   deleteFromCart,
-  countTest,
+  onCountChange,
 }) {
-  const [count, setCount] = useState(1);
-  const [cartItem, setCartItem] = useState([]);
+  const [count, setCount] = useState(quantity);
   const [userData, setUserData] = useState([]);
   const { user } = useContext(UserContext);
+
+  // Call callback function with new count value
+  const handleCountChange = (newCount) => {
+    setCount(newCount);
+    onCountChange(newCount);
+  };
 
   // get logged in user data
   useEffect(() => {
@@ -28,36 +38,70 @@ function CartCard({
     fetchUserData();
   }, []);
 
-  // add to cart
-  const addToCart = async () => {
-    try {
-      const request = await axios.post("http://localhost:5000/carts", {
-        productId: productId,
-        userId: userData.id,
+  // update quantity
+  const updateQuantity = (id, newQuantity) => {
+    axios
+      .put(`http://localhost:5000/carts/quantity/${id}`, {
+        quantity: newQuantity,
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-      setCartItem(request.data);
-      console.log("added to cart");
-    } catch (error) {
-      console.log(error.message);
-    }
   };
 
-  console.log(productId);
-
-  console.log(countTest);
+  const itemPriceTotal = count * price;
 
   return (
     <div className="cart-card-container">
-      <div>
-        {id}, {category}, {name}
+      <Link to={`/content/${category}/${productId}`}>
+        <img src={image} alt="" className="image" width={100} height={100} />
+      </Link>
+      <div className="descriptions">
+        <div className="name">{name}</div>
+        <div className="size">{size}</div>
       </div>
-      <div onClick={() => deleteFromCart(id)}>
-        <DeleteIcon />
+      <div className="buttons">
+        <div className="delete" onClick={() => deleteFromCart(id)}>
+          <DeleteIcon />
+        </div>
+        <div className="counter">
+          <button
+            className="decrement"
+            onClick={() => {
+              if (count > 1) {
+                const newCount = count - 1;
+                setCount(newCount);
+                handleCountChange(newCount);
+                updateQuantity(id, newCount);
+              } else {
+                console.log("cannot decrement");
+              }
+            }}
+          >
+            {" "}
+            -{" "}
+          </button>
+          <div>{count}</div>
+          <button
+            className="increment"
+            onClick={() => {
+              const newCount = count + 1;
+              setCount(newCount);
+              handleCountChange(newCount);
+              updateQuantity(id, newCount);
+            }}
+          >
+            {" "}
+            +{" "}
+          </button>
+        </div>
       </div>
-      <div className="counter">
-        <button onClick={() => deleteFromCart(id)}> - </button>
-        <div>{count}</div>
-        <button onClick={addToCart}> + </button>
+      <div className="total">
+        <div>${itemPriceTotal.toFixed(2)}</div>
+        <div>${price} each</div>
       </div>
     </div>
   );
