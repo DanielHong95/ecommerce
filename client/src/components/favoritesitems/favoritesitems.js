@@ -45,6 +45,9 @@ function FavoritesItems() {
     }
   };
 
+  if (favorites.length === 0) {
+    return <div className="favorites-empty-message">Favorites is empty</div>;
+  }
   return (
     <div className="favorites-grid-container">
       {favorites.map(({ product, id }) => (

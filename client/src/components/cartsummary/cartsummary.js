@@ -45,10 +45,19 @@ function CartSummary(props) {
     <div className="cart-summary-container">
       <div className="cart-header">Cart Summary </div>
       <div className="cart-total">
-        <div>Subtotal ${productTotal.toFixed(2)}</div>
-        <div>Estimated Tax ${cartTax.toFixed(2)}</div>
-        <div>Estimated Total ${cartTotal.toFixed(2)}</div>
-        <button>Checkout</button>
+        <div className="subtotal">
+          <div className="title">Subtotal</div>
+          <div className="price">${productTotal.toFixed(2)}</div>
+        </div>
+        <div className="tax">
+          <div className="title">Estimated Tax</div>
+          <div className="price">${cartTax.toFixed(2)}</div>
+        </div>
+        <div className="total">
+          <div className="title">Estimated Total</div>
+          <div className="price">${cartTotal.toFixed(2)}</div>
+        </div>
+        <button className="checkout">Checkout</button>
       </div>
     </div>
   );

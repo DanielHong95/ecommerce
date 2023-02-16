@@ -53,28 +53,30 @@ function CartItem() {
   };
 
   if (cartItems.length === 0) {
-    return <div className="empty-message">Your cart is empty</div>;
+    return <div className="cart-empty-message">Your cart is empty</div>;
   }
   return (
     <div className="cart-items-container">
-      {cartItems.map(({ id, productId, quantity, product }) => (
-        <div key={cartItems.id}>
-          <CartCard
-            key={id}
-            id={id}
-            productId={productId}
-            quantity={quantity}
-            image={product.image_url}
-            category={product.category}
-            name={product.name}
-            size={product.size}
-            price={product.price}
-            deleteFromCart={deleteFromCart}
-            onCountChange={handleCartCountChange}
-          />
-        </div>
-      ))}
-      <div>
+      <div className="cart-cards">
+        {cartItems.map(({ id, productId, quantity, product }) => (
+          <div key={cartItems.id}>
+            <CartCard
+              key={id}
+              id={id}
+              productId={productId}
+              quantity={quantity}
+              image={product.image_url}
+              category={product.category}
+              name={product.name}
+              size={product.size}
+              price={product.price}
+              deleteFromCart={deleteFromCart}
+              onCountChange={handleCartCountChange}
+            />
+          </div>
+        ))}
+      </div>
+      <div className="cart-summary">
         <CartSummary count={cartCount} />
       </div>
     </div>
