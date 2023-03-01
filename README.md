@@ -1,4 +1,6 @@
-# ecommerce
+![alt text](ecommerce\client\src\images\hongover_logo_grey.png)
+
+# hongover
 
 Fullstack ecommerce site project built with the PERN stack
 
