@@ -7,16 +7,18 @@ import "../productitem/productitem.css";
 
 function ProductItems() {
   const { linkUrl } = useParams();
-  console.log(linkUrl);
+  // console.log(linkUrl);
   const [products, setProducts] = useState([]);
 
   // get products
   useEffect(() => {
     async function fetchProducts() {
-      const getProducts = await axios.get(`http://localhost:5000/${linkUrl}/`);
+      const getProducts = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/${linkUrl}/`
+      );
       setProducts(getProducts.data);
     }
-    console.log(products);
+    // console.log(products);
     fetchProducts();
   }, [linkUrl]);
 

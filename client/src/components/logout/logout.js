@@ -14,7 +14,9 @@ const Logout = () => {
 
   const logout = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/auth/logout");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/auth/logout`
+      );
       dispatch(unauthenticateUser());
       localStorage.removeItem("isAuth");
       logoutUser();

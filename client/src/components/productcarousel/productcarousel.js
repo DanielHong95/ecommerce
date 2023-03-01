@@ -18,10 +18,12 @@ function ProductCarousel() {
   // get products
   useEffect(() => {
     async function fetchProducts() {
-      const getProducts = await axios.get(`http://localhost:5000/products/`);
+      const getProducts = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/products/`
+      );
       setProducts(getProducts.data);
     }
-    console.log(products);
+    // console.log(products);
     fetchProducts();
   }, []);
 

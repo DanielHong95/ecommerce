@@ -11,10 +11,12 @@ function CollectionFilter() {
 
   useEffect(() => {
     async function fetchProducts() {
-      const getProducts = await axios.get(`http://localhost:5000/${linkUrl}/`);
+      const getProducts = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/${linkUrl}/`
+      );
       setProducts(getProducts.data);
     }
-    console.log(products);
+    // console.log(products);
     fetchProducts();
   }, []);
 
@@ -30,9 +32,9 @@ function CollectionFilter() {
   const type = Array.from(typeSet);
   const size = Array.from(sizeSet);
 
-  console.log(market);
-  console.log(type);
-  console.log(size);
+  // console.log(market);
+  // console.log(type);
+  // console.log(size);
 
   const data = {
     market: market,

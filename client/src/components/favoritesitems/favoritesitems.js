@@ -14,7 +14,7 @@ function FavoritesItems() {
   useEffect(() => {
     async function fetchUserData() {
       const getUserData = await axios.get(
-        `http://localhost:5000/auth/users/${user.email}`
+        `${process.env.REACT_APP_SERVER_URL}/auth/users/${user.email}`
       );
       setUserData(getUserData.data);
     }
@@ -25,7 +25,7 @@ function FavoritesItems() {
   useEffect(() => {
     async function fetchFavorites() {
       const getFavorites = await axios.get(
-        `http://localhost:5000/favorites/users/${userData.id}`
+        `${process.env.REACT_APP_SERVER_URL}/favorites/users/${userData.id}`
       );
       setFavorites(getFavorites.data);
     }
@@ -35,7 +35,7 @@ function FavoritesItems() {
   const deleteFavorites = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/favorites/${id}`,
+        `${process.env.REACT_APP_SERVER_URL}/favorites/${id}`,
         {}
       );
       setFavorites(favorites.filter((fave) => fave.id !== id));

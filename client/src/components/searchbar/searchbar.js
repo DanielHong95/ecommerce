@@ -13,7 +13,9 @@ function SearchBar() {
 
   useEffect(() => {
     async function fetchProducts() {
-      const getProducts = await axios.get(`http://localhost:5000/products/`);
+      const getProducts = await axios.get(
+        `${process.env.REACT_APP_SERVER_URL}/products/`
+      );
       setProducts(getProducts.data);
     }
     fetchProducts();
@@ -24,41 +26,76 @@ function SearchBar() {
     let path = `/content/${category}/${id}`;
     navigate(path);
     setValue(id, category);
-    console.log("search ", id, category);
+    // console.log("search ", id, category);
   };
 
   return (
     <Autocomplete
-      id="products"
-      disableClearable
-      getOptionLabel={(option) => option.name}
+      disablePortal
+      id="cocktail=search"
+      getOptionLabel={(option) =>
+        `${option.name} - ${option.category}(${option.id})`
+      }
       options={products}
-      onKeyPress={(e) => {
-        if (e.key === "Enter") {
-          onSearch("1", "beers");
-        }
-      }}
       sx={{ width: 500 }}
       renderInput={(params) => (
         <TextField
           {...params}
           label="Search Products"
-          InputProps={{
-            ...params.InputProps,
-            type: "search",
-            endAdornment: (
-              <InputAdornment>
-                <IconButton>
-                  <SearchIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
           sx={{ bgcolor: "#fff" }}
+          value={value}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              const selectedOption = products.find(
+                (option) =>
+                  `${option.name} - ${option.category}(${option.id})` ===
+                  params.inputProps.value
+              );
+              const selectedId = selectedOption ? selectedOption.id : null;
+              const selectedCategory = selectedOption
+                ? selectedOption.category
+                : null;
+              onSearch(selectedId, selectedCategory);
+            }
+          }}
         />
       )}
     />
   );
 }
+
+//   return (
+//     <Autocomplete
+//       id="products"
+//       disableClearable
+//       getOptionLabel={(option) => option.name}
+//       options={products}
+//       onKeyPress={(e) => {
+//         if (e.key === "Enter") {
+//           onSearch("1", "beers");
+//         }
+//       }}
+//       sx={{ width: 500 }}
+//       renderInput={(params) => (
+//         <TextField
+//           {...params}
+//           label="Search Products"
+//           InputProps={{
+//             ...params.InputProps,
+//             type: "search",
+//             endAdornment: (
+//               <InputAdornment>
+//                 <IconButton>
+//                   <SearchIcon />
+//                 </IconButton>
+//               </InputAdornment>
+//             ),
+//           }}
+//           sx={{ bgcolor: "#fff" }}
+//         />
+//       )}
+//     />
+//   );
+// }
 
 export default SearchBar;

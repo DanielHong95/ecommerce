@@ -23,7 +23,7 @@ const Register = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/auth/register",
+        `${process.env.REACT_APP_SERVER_URL}/auth/register`,
         values
       );
       setError("");

@@ -31,7 +31,7 @@ function FavoritesCard({
   useEffect(() => {
     async function fetchUserData() {
       const getUserData = await axios.get(
-        `http://localhost:5000/auth/users/${user.email}`
+        `${process.env.REACT_APP_SERVER_URL}/auth/users/${user.email}`
       );
       setUserData(getUserData.data);
     }
@@ -43,18 +43,21 @@ function FavoritesCard({
     event.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:5000/carts/${userData.id}/${productId}`
+        `${process.env.REACT_APP_SERVER_URL}/carts/${userData.id}/${productId}`
       );
       if (response.data) {
         setErrorMessage("Cart item already exists");
         console.log("Cart item already exists");
         return;
       }
-      const request = await axios.post("http://localhost:5000/carts", {
-        productId: productId,
-        userId: userData.id,
-        quantity: 1,
-      });
+      const request = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/carts`,
+        {
+          productId: productId,
+          userId: userData.id,
+          quantity: 1,
+        }
+      );
       setData(request.data);
       setSuccessMessage("Added to cart");
       console.log("Added to cart");

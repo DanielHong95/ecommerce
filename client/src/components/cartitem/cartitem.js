@@ -20,7 +20,7 @@ function CartItem() {
   useEffect(() => {
     async function fetchUserData() {
       const getUserData = await axios.get(
-        `http://localhost:5000/auth/users/${user.email}`
+        `${process.env.REACT_APP_SERVER_URL}/auth/users/${user.email}`
       );
       setUserData(getUserData.data);
     }
@@ -31,7 +31,7 @@ function CartItem() {
   useEffect(() => {
     async function fetchCartItems() {
       const cartItems = await axios.get(
-        `http://localhost:5000/carts/users/${userData.id}`
+        `${process.env.REACT_APP_SERVER_URL}/carts/users/${userData.id}`
       );
       setCartItems(cartItems.data);
     }
@@ -42,7 +42,7 @@ function CartItem() {
   const deleteFromCart = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/carts/${id}`,
+        `${process.env.REACT_APP_SERVER_URL}/carts/${id}`,
         {}
       );
       setCartItems(cartItems.filter((item) => item.id !== id));
@@ -55,7 +55,7 @@ function CartItem() {
   if (cartItems.length === 0) {
     return <div className="cart-empty-message">Your cart is empty</div>;
   }
-  console.log({ cartItems });
+  // console.log({ cartItems });
   return (
     <div className="cart-items-container">
       <div className="cart-cards">

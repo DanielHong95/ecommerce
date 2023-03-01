@@ -17,7 +17,7 @@ function Footer() {
           <img src={logo} alt="Logo" height={50} width={200} />
         </Link>
         <h2 className="info-header">Contact Customer Care</h2>
-        <Link>+1 (800)420-6969</Link>
+        <Link>+1 (800)123-4567</Link>
         <div>Mon.-Sun.: 9 a.m. - 12 a.m. ET</div>
         <div>Copyright @ 2022 Hongover Liquor</div>
         <div>Spirit sales where allowed by law</div>

@@ -8,12 +8,12 @@ function CartSummary(props) {
   const [productTotal, setProductTotal] = useState(0);
   const { user } = useContext(UserContext);
 
-  console.log(props.cartItems);
+  // console.log(props.cartItems);
   // get user data
   useEffect(() => {
     async function fetchUserData() {
       const getUserData = await axios.get(
-        `http://localhost:5000/auth/users/${user.email}`
+        `${process.env.REACT_APP_SERVER_URL}/auth/users/${user.email}`
       );
       setUserData(getUserData.data);
     }
@@ -24,7 +24,7 @@ function CartSummary(props) {
   useEffect(() => {
     async function fetchProductSum() {
       const response = await axios.get(
-        `http://localhost:5000/carts/product_total/users/${userData.id}`
+        `${process.env.REACT_APP_SERVER_URL}/carts/product_total/users/${userData.id}`
       );
       const productTotalSum = response.data.reduce(
         (acc, curr) => acc + parseFloat(curr.product_total),

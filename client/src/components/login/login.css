@@ -18,6 +18,6 @@
 .login-messages {
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: absolute;
   margin-top: 275px;
 }

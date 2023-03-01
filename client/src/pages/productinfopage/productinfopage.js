@@ -11,12 +11,12 @@ function ProductInfoPage() {
   useEffect(() => {
     async function fetchProductById() {
       const getProduct = await axios.get(
-        `http://localhost:5000/${linkUrl}/${id}`
+        `${process.env.REACT_APP_SERVER_URL}/${linkUrl}/${id}`
       );
       setProductInfo(getProduct.data);
     }
     fetchProductById();
-  }, []);
+  }, [id, linkUrl]);
 
   if (productInfo === undefined) {
     return <p>loading...</p>;

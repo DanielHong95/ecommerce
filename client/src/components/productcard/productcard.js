@@ -27,7 +27,7 @@ function ProductCard({ id, name, price, size, image }) {
   useEffect(() => {
     async function fetchUserData() {
       const getUserData = await axios.get(
-        `http://localhost:5000/auth/users/${user.email}`
+        `${process.env.REACT_APP_SERVER_URL}/auth/users/${user.email}`
       );
       setUserData(getUserData.data);
     }
@@ -39,18 +39,21 @@ function ProductCard({ id, name, price, size, image }) {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:5000/carts/${userData.id}/${id}`
+        `${process.env.REACT_APP_SERVER_URL}/carts/${userData.id}/${id}`
       );
       if (response.data) {
         setErrorMessage("Cart item already exists");
         console.log("Cart item already exists");
         return;
       }
-      const request = await axios.post("http://localhost:5000/carts", {
-        productId: id,
-        userId: userData.id,
-        quantity: 1,
-      });
+      const request = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/carts`,
+        {
+          productId: id,
+          userId: userData.id,
+          quantity: 1,
+        }
+      );
       setData(request.data);
       setSuccessMessage("Added to cart");
       console.log("Added to cart");
@@ -64,14 +67,14 @@ function ProductCard({ id, name, price, size, image }) {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:5000/favorites/${userData.id}/${id}`
+        `${process.env.REACT_APP_SERVER_URL}/favorites/${userData.id}/${id}`
       );
       if (response.data) {
         setErrorMessage("Favorite already exists");
         console.log("Data already exists in the database, cannot submit");
         return;
       }
-      await axios.post("http://localhost:5000/favorites", {
+      await axios.post(`${process.env.REACT_APP_SERVER_URL}/favorites`, {
         productId: id,
         userId: userData.id,
       });

@@ -31,7 +31,7 @@ function CartCard({
   useEffect(() => {
     async function fetchUserData() {
       const getUserData = await axios.get(
-        `http://localhost:5000/auth/users/${user.email}`
+        `${process.env.REACT_APP_SERVER_URL}/auth/users/${user.email}`
       );
       setUserData(getUserData.data);
     }
@@ -41,7 +41,7 @@ function CartCard({
   // update quantity
   const updateQuantity = async (id, newQuantity) => {
     await axios
-      .put(`http://localhost:5000/carts/quantity/${id}`, {
+      .put(`${process.env.REACT_APP_SERVER_URL}/carts/quantity/${id}`, {
         quantity: newQuantity,
       })
       .then((response) => {
