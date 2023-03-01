@@ -1,0 +1,8 @@
+
+dump data into docker postgres
+docker cp ./scripts/dump.sql db:/docker-entrypoint-initdb.d/dump.sql
+docker exec -u postgres db psql ecommerce postgres -f ./scripts/db/dump.sql
+
+**on ec2 instance
+sudo docker cp ./dump.sql db:/docker-entrypoint-initdb.d/dump.sql
+sudo docker exec -u postgres db psql ecommerce postgres -f ./docker-entrypoint-initdb.d/dump.sql

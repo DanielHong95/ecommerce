@@ -1,0 +1,32 @@
+version: '3.8'
+
+services: 
+  web:
+    container_name: ecommerce
+    image: danielhong95/ecommerce:latest
+    build: 
+      context: .
+    ports:
+      - "5000:5000"
+    environment: 
+      - EXTERNAL_PORT=5000
+      - PGDATABASE=ecommerce
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - PGHOST=db
+    depends_on: 
+      - db
+  db: 
+    container_name: db
+    image: "postgres:14"
+    ports:
+      - "5433:5432"
+    environment: 
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ecommerce
+    volumes:
+      - nps_data:/var/lib/postgresql/data
+
+volumes:
+  nps_data: {}
